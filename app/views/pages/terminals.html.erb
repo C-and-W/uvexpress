@@ -1,0 +1,85 @@
+<div id="body-home">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4" style="background-color:#5388AD; min-height: 100vh;">
+                <div><center><%= image_tag 'logo bluebg', :style=>"width: 350px; padding-top: 3vh;" %></center></div>
+                <div class="row">
+                    <div class="col-xs-2">
+                        <%= image_tag 'location to destination.png', :style => "height: 100px; margin-top:2vh; margin-left: 15px;"%>
+                    </div>
+                    <form action="/two">
+                    <div class="col-xs-8">
+                        <center><input id="i-origin3" class="i-search" type="text" name="origin" placeholder="SEARCH ORIGIN" value=<%= params['origin'] %>></center>
+                      <center><input id="i-destination2" class="i-search" type="text" name="destination" value=<%= params['destination'] %>></center>
+                    </div>
+                    <div class="col-xs-2">
+                        <input type="image" src="/assets/reverse.png" alt="Reverse" id="i-reverse2" class="i-reverse" onclick="reverse();">
+                    </div>
+                    </form>
+                </div>
+                <div class="t-s1" style="background-color: white; margin-top: 6vh; min-height: 65.5vh; width: 35vw; margin-left: -1vw; overflow-x:hidden;">
+                    <div class="t-td1" style="margin-left: -1vw; margin-top: 4vh; font-family: 'Open Sans', sans-serif; color: #5388AD; font-size: 16px; font-weight: bold;"><center>There are 3 terminals near your location!</center></div>
+                    <div id="t-table-wrapper"><center>
+                        <div class="row">
+                            <div class="col-md-6" style="background-color:red;">
+                                <div class="t-name">SM Southmall</div>
+                                5:30 am to 10:00 am
+                            </div>
+                            <div class="col-md-6">
+                                <div class="t-via"><li>Ayala, Makati via Skyway</li></div>
+                            </div>
+                        </div>
+                        <table id="t-table">
+                            <tr>
+                                <!-- IROW MO NA LANG TO KESA TABLE-->
+                                </div>
+                                <td class="td-t-name"><div class="t-name">SM Southmall</div>5:30 am to 10:00 am</td>
+                                <td class="td-t-via"><div class="t-via"><li>Ayala, Makati via Skyway</li></div></td>
+                            </tr>
+                            <tr>
+                                <td class="td-t-name"><div class="t-name">Alabang Town Center</div><br>6:00 am to 10:00 am</td>
+                                <td><div class="t-via"><li>Ayala, Makati via Skyway</li></div></td>
+                            </tr>
+                            <tr>
+                                <td class="td-t-name"><div class="t-name">Festival Mall</div>6:00 am to 10:00 am</td>
+                                <td>
+                                    <div class="t-via"><li>Ayala, Makati via Skyway</li>
+                                    <li>SM MOA via Skyway</li>
+                                    <li>Ortigas via C5</li>
+                                    <li>Market Market! via C5</li></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="td-t-name"><div class="t-name">BF Resort Village</div>5:30 am to 10:00 am</td>
+                                <td><div class="t-via"><li>Ayala, Makati via Skyway</li></div></td>
+                            </tr>
+                            <tr>
+                                <td class="td-t-name"><div class="t-name">Casimiro, Las Pinas</div>6:00 am to 10:00 am</td>
+                                <td><div class="t-via"><li>Ayala, Makati via Skyway</li></div></td>
+                            </tr>
+                        </table>
+                    </center></div>
+                    <!-- <input type="image" src="/assets/hamburger menu 2.png" alt="Menus" id="i-menu3" class="i-menu my_popup_open">
+                    <div id="my_popup">
+                        <%= render 'about' %>
+                    </div>
+                    <input type="image" src="/assets/maps bar icon 2.png" alt="Maps" id="i-maps3" class="i-maps"> -->
+                </div>
+            </div>
+            <div class="col-md-8" style="min-height: 100vh; background-color: #E4E2E1;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+function reverse() {
+    var destination = document.getElementById("i-destination2").value;
+    var origin = document.getElementById("i-origin").value;
+    document.getElementById("i-origin").value = destination;
+    document.getElementById("i-destination2").value = origin;
+}
+</script>
+
+

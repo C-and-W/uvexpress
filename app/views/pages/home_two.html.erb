@@ -1,0 +1,42 @@
+<div id="body-home">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4" style="background-color:#5388AD; min-height: 100vh;">
+                <div><center><%= image_tag 'logo bluebg', :style=>"width: 500px; padding-top: 3vh;" %></center></div>
+                <div class="">
+                    <form action="/two" class="row" style="margin-top:4vh;">
+                        <div class="col-xs-2">
+                        <%= image_tag 'location to destination.png', :style => "height: 100px; margin-left: 15px;"%>
+                    </div>
+                    <div class="col-xs-8">
+                        <center><input id="i-origin" class="i-search" type="text" name="origin" placeholder="SEARCH ORIGIN" value=<%= params['origin'] %>></center>
+                      <center><input id="i-destination2" class="i-search" type="text" name="destination" value=<%= params['destination'] %>></center>
+                    </div>
+                    <div class="col-xs-2">
+                        <input type="image" src="/assets/reverse.png" alt="Reverse" id="i-reverse1" class="i-reverse" onclick="reverse();">
+                    </div>
+                    </form>
+                </div>
+                <input type="image" src="/assets/hamburger menu 1.png" alt="Menus" id="i-menu2" class="i-menu my_popup_open">
+                <div id="my_popup">
+                    <%= render 'about' %>
+                </div>
+                <input type="image" src="/assets/maps bar icon.png" alt="Maps" id="i-maps2" class="i-maps">
+            </div>
+            <div class="col-md-8" style="min-height: 100vh; background-color: #E4E2E1;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+function reverse() {
+    var destination = document.getElementById("i-destination2").value;
+    var origin = document.getElementById("i-origin").value;
+    document.getElementById("i-origin").value = destination;
+    document.getElementById("i-destination2").value = origin;
+}
+</script>
+
+

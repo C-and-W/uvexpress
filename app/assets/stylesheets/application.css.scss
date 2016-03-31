@@ -1,0 +1,234 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+#body-home{
+  overflow-x:hidden;
+  overflow-y:hidden;
+ }
+
+.i-left{
+  background-color:#5388AD; 
+  min-height: 100vh;
+}
+
+#i-td1{
+  font-family: 'Open Sans', sans-serif;
+  color:white;
+}
+
+#i-td1{
+  padding-top: 3vh;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+::-webkit-input-placeholder {
+   text-align: center;
+   color: black;
+   opacity: 1 !important;
+   font-family: 'Open Sans', sans-serif;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   text-align: center;  
+   color: black;
+   opacity: 1 !important;
+   font-family: 'Open Sans', sans-serif;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   text-align: center;
+   color: black; 
+   opacity: 1 !important;
+   font-family: 'Open Sans', sans-serif;
+}
+
+:-ms-input-placeholder {  
+   text-align: center;
+   color: black; 
+   opacity: 1 !important;
+   font-family: 'Open Sans', sans-serif;
+}
+
+.i-search{
+  border: none;
+  width: 100%;
+  height: 45px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#i-destination{
+  margin-top: 7vh;
+}
+
+#i-origin{
+}
+#i-destination2{
+  margin-top: 1.5vh;
+}
+
+.i-reverse{
+  height: 50px; 
+  margin-left: -15px;
+  border: none;
+  outline:none;
+}
+
+#i-reverse1{
+  margin-top:3vh; 
+}
+
+.i-maps{
+  width: 10%; 
+}
+
+.i-menu{
+  width: 8%;  
+}
+
+#i-maps1, #i-menu1{
+  margin-top:40vh;
+}
+
+#i-maps2, #i-menu2{
+  margin-top:58vh;
+}
+
+#i-maps1, #i-maps2{
+  float: right;
+  margin-right: 10px;
+  border: solid white 2px;
+}
+
+#i-menu1, #i-menu2{
+  margin-left:1vw; 
+}
+
+/* POPUP ABOUT */
+
+#about{
+  height: 95vh;
+  width: 97vw;
+  background-color: #E4E2E1;
+  opacity: 0.95
+}
+
+.p-title, .p-td, #p-td5, #p-td6, #p-td7, #p-td8{
+  font-family: 'Open Sans', sans-serif;
+}
+
+.p-title{
+  padding-top: 3vh;
+  margin-right: 15vw;
+}
+
+.p-td{
+  font-size: 18px;
+  margin-left: -20px;
+}
+
+#p-td1, #p-td3{
+  margin-top: 2vh;
+}
+
+#p-td2{
+  margin-top: 5vh;
+}
+
+#p-td4{
+  margin-top: 4vh;
+}
+
+#p-panel2{
+  margin-left: -7vw;
+}
+
+#p-td5, #p-td6, .p-icons{
+  color:#5388AD;
+  margin-right: 15vw;
+}
+
+#p-td5{
+  font-weight: 900;
+  font-size: 40px;
+  margin-top: 8vh;
+}
+
+#p-td6{
+  margin-top: 1vh;
+  font-size: 18px;
+}
+
+.p-icons{
+  margin-top: 7vh;
+}
+
+#p-td7, #p-td8{
+  background-color: #B4B6B8;
+  color:#5388AD;
+  font-weight: 900;
+  font-size: 18px;
+}
+
+#p-td7, #p-td8{
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+}
+
+#p-td7, #p-td8{
+  border:none;
+  width: 160px;
+  margin-top: 1.5vh;
+}
+
+#p-td7:hover, #p-td8:hover{
+  background-color: #F5E8BB;
+  color: black;
+}
+
+/* TERMINALS */
+
+#i-origin3{
+  margin-top: 2vh;
+}
+
+#i-reverse2{
+  margin-top:5vh; 
+}
+
+#t-table, #t-table td{
+  border: 1px solid #E4E2E1;
+  color: #5388AD; 
+  font-size: 15px;
+}
+
+#t-table .td-t-name{
+  vertical-align: top;
+}
+.t-name{
+  font-weight: bold;
+  margin-right: 15px;
+}
+
+.t-via{
+  margin-left: 20px;
+  margin-right: 30px;
+}
+
+#t-table-wrapper{
+  
+}

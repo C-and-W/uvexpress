@@ -1,0 +1,22 @@
+<div id="body-home">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 i-left">
+                <div><center><%= image_tag 'logo bluebg', :style=>"width: 500px; padding-top: 13vh;" %></center></div>
+                <div id="i-td1"><center>Clueless no more!<br>UV Express schedules, routes,<br>fares, terminals in the Metro.</center></div>
+                <form action="/two">
+                  <center><input id="i-destination" class="i-search" type="text" name="destination" placeholder="SEARCH DESTINATION"></center>
+                </form>
+                <input type="image" src="/assets/hamburger menu 1.png" alt="Menus" id="i-menu1" class="i-menu my_popup_open">
+                <div id="my_popup">
+                  <%= render 'about' %>
+                </div>
+                <input type="image" src="/assets/maps bar icon.png" alt="Maps" id="i-maps1" class="i-maps">
+            </div>
+            <div class="col-md-8" style="min-height: 100vh; background-color: #E4E2E1;">
+            </div>
+        </div>
+    </div>
+</div>
+
+
