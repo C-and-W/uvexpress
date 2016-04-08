@@ -60,7 +60,7 @@ if (navigator.geolocation) { //Checks if browser supports geolocation
      directionsDisplay.setPanel(document.getElementById('panel'));
      var request = {
        origin: coords,
-       destination: new google.maps.LatLng(<%=@event.latitude%>, <%=@event.longitude%>),
+       destination: new google.maps.LatLng(<%=thelat%>, <%=thelon%>),
        travelMode: google.maps.DirectionsTravelMode.DRIVING
      };
      directionsService.route(request, function (response, status) {
