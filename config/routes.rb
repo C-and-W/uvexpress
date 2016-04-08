@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :destinations
   root 'pages#index'
   get '/two', to: 'pages#home_two', as: :home_two
   get '/about', to: 'pages#about'

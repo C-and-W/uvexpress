@@ -123,7 +123,7 @@
 /* POPUP ABOUT */
 
 #about{
-  height: 95vh;
+  height: 92vh;
   width: 97vw;
   background-color: #E4E2E1;
   opacity: 0.95;
@@ -182,9 +182,12 @@
 
 #p-td7, #p-td8{
   background-color: #B4B6B8;
-  color:#5388AD;
+  color:black;
   font-weight: 900;
   font-size: 18px;
+}
+#p-td7:hover, #p-td8:hover{
+  color:#5388AD;
 }
 
 #p-td7, #p-td8{
@@ -196,12 +199,9 @@
   border:none;
   width: 160px;
   margin-top: 1.5vh;
+  transition: all 0.2s ease-in-out;
 }
 
-#p-td7:hover, #p-td8:hover{
-  background-color: #F5E8BB;
-  color: black;
-}
 
 /* TERMINALS */
 

@@ -25,6 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem "less-rails"
 gem 'twitter-bootstrap-rails'
+gem 'geocoder'
 gem 'gmaps4rails'
 gem 'underscore-rails'
 
