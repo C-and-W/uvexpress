@@ -36,3 +36,24 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  markers = handler.addMarkers([
+    {
+      "lat": 14.607325,
+      "lng": 120.990602,
+      "picture": {
+        "url": "https://gcdc2013-know-your-gov.appspot.com/static/img/gmaps.png",
+        "width":  36,
+        "height": 36
+      },
+      "infowindow": "Dormus Living Spaces"
+    }
+  ]);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+  handler.getMap().setZoom(17);
+});
+
+</script>

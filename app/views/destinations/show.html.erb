@@ -1,29 +1,98 @@
-<p id="notice"><%= notice %></p>
+<div id="body-home">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4" style="background-color:#5388AD; height: 100vh;">
+                <div><center><%= image_tag 'logo bluebg', :style=>"width: 100%; padding-top: 3vh;" %></center></div>
+                <div class="">
+                    <form action="/two" class="row" style="margin-top:4vh;">
+                        <div class="col-xs-2">
+                        <%= image_tag 'location to destination.png', :style => "height: 100px; margin-left: 15px;"%>
+                    </div>
+                    <div class="col-xs-8">
+                        <center><input id="i-origin" class="i-search" type="text" name="origin" placeholder="SEARCH ORIGIN" value=<%= params['origin'] %>></center>
+                      <center><input id="i-destination2" class="i-search" type="text" name="destination" value=<%= params['destination'] %>></center>
+                    </div>
+                    <div class="col-xs-2">
+                        <input type="image" src="/assets/reverse.png" alt="Reverse" id="i-reverse1" class="i-reverse" onclick="reverse();">
+                    </div>
+                    </form>
+                </div>
+                <input type="image" src="/assets/hamburger menu 1.png" alt="Menus" id="i-menu2" class="i-menu my_popup_open">
+                <div id="my_popup">
+                    <%= render 'about' %>
+                </div>
+                <input type="image" src="/assets/maps bar icon.png" alt="Maps" id="i-maps2" class="i-maps">
+            </div>
+            <div id="map"class="col-md-8" style="min-height: 100vh; background-color: #E4E2E1;">
+            </div>
+        </div>
+    </div>
+</div>
 
-<p>
-  <strong>Latitude:</strong>
-  <%= @destination.latitude %>
-</p>
+<script type="text/javascript">
 
-<p>
-  <strong>Longitude:</strong>
-  <%= @destination.longitude %>
-</p>
+function reverse() {
+    var destination = document.getElementById("i-destination2").value;
+    var origin = document.getElementById("i-origin").value;
+    document.getElementById("i-origin").value = destination;
+    document.getElementById("i-destination2").value = origin;
+}
+</script>
 
-<p>
-  <strong>Address:</strong>
-  <%= @destination.address %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @destination.description %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @destination.title %>
-</p>
-
-<%= link_to 'Edit', edit_destination_path(@destination) %> |
-<%= link_to 'Back', destinations_path %>
+<script type="text/javascript">
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  markers = handler.addMarkers(<%=raw @hash.to_json %>);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+  handler.getMap().setZoom(17);
+});
+function showlocation() {
+   // One-shot position request.
+   navigator.geolocation.getCurrentPosition(callback);
+}
+function callback(position) {
+   document.getElementById('latitude').innerHTML = position.coords.latitude;
+   document.getElementById('longitude').innerHTML = position.coords.longitude;
+}
+var directionsDisplay = new google.maps.DirectionsRenderer();
+var directionsService = new google.maps.DirectionsService();
+function calcRoute() {
+if (navigator.geolocation) { //Checks if browser supports geolocation
+   navigator.geolocation.getCurrentPosition(function (position) {                                                              //This gets the
+     var latitude = position.coords.latitude;                    //users current
+     var longitude = position.coords.longitude;                 //location
+     var coords = new google.maps.LatLng(latitude, longitude); //Creates variable for map coordinates
+     var directionsService = new google.maps.DirectionsService();
+     var directionsDisplay = new google.maps.DirectionsRenderer();
+     var mapOptions = //Sets map options
+     {
+       zoom: 15,  //Sets zoom level (0-21)
+       center: coords, //zoom in on users location
+       mapTypeControl: true, //allows you to select map type eg. map or satellite
+       navigationControlOptions:
+       {
+         style: google.maps.NavigationControlStyle.SMALL //sets map controls size eg. zoom
+       },
+       mapTypeId: google.maps.MapTypeId.ROADMAP //sets type of map Options:ROADMAP, SATELLITE, HYBRID, TERRIAN
+     };
+     map = new google.maps.Map( /*creates Map variable*/ document.getElementById("map"), mapOptions /*Creates a new map using the passed optional parameters in the mapOptions parameter.*/);
+     directionsDisplay.setMap(map);
+     directionsDisplay.setPanel(document.getElementById('panel'));
+     var request = {
+       origin: coords,
+       destination: new google.maps.LatLng(<%=@destination.latitude%>, <%=@destination.longitude%>),
+       travelMode: google.maps.DirectionsTravelMode.DRIVING
+     };
+     directionsService.route(request, function (response, status) {
+       if (status == google.maps.DirectionsStatus.OK) {
+         directionsDisplay.setDirections(response);
+       }
+     });
+   });
+ }
+}
+ window.onload = calcRoute;
+ 
+</script>
