@@ -21,7 +21,7 @@
 
 .i-left{
   background-color:#5388AD; 
-  min-height: 100vh;
+  height: 100vh;
 }
 
 #i-td1{
@@ -101,7 +101,9 @@
 }
 
 #i-maps1, #i-menu1{
-  margin-top:40vh;
+  bottom:0;
+  position: absolute;
+  margin-bottom: 20px;
 }
 
 #i-maps2, #i-menu2{
@@ -124,7 +126,8 @@
   height: 95vh;
   width: 97vw;
   background-color: #E4E2E1;
-  opacity: 0.95
+  opacity: 0.95;
+  margin-top:2vh;
 }
 
 .p-title, .p-td, #p-td5, #p-td6, #p-td7, #p-td8{
@@ -165,7 +168,7 @@
 #p-td5{
   font-weight: 900;
   font-size: 40px;
-  margin-top: 8vh;
+  margin-top: 5vh;
 }
 
 #p-td6{
@@ -174,7 +177,7 @@
 }
 
 .p-icons{
-  margin-top: 7vh;
+  margin-top: 1.5vh;
 }
 
 #p-td7, #p-td8{
