@@ -5,7 +5,7 @@
             <div class="col-md-4 i-left">
                 <div><center><%= image_tag 'logo bluebg', :style=>"width: 100%; padding-top: 13vh;" %></center></div>
                 <div id="i-td1"><center>Clueless no more!<br>UV Express schedules, routes,<br>fares, terminals in the Metro.</center></div>
-                <form action="">
+               
                   <center>
 					<%= form_for(@destination) do |f| %>
 					<div class="field" style="display:none;">
@@ -17,14 +17,14 @@
 				    <%= f.text_field :longitude %>
 				  </div>
 					<div class="field">
-				    <%= f.text_field :address, :id=>"i-destination", :class=>"i-search", :type=>"text", :name=>"destination", :placeholder=>"SEARCH DESTINATION" %>
+				    <%= f.text_field :address, :id=>"i-destination", :class=>"i-search", :type=>"text", :name=>"destination[address]", :placeholder=>"SEARCH DESTINATION" %>
 				  </div>
 				    <div class="actions" style="visibility:hidden;">
 					    <%= f.submit %>
 					</div>
 					<%end%>
                   </center>
-                </form>
+                
                 <input type="image" src="/assets/hamburger menu 1.png" alt="Menus" id="i-menu1" class="i-menu my_popup_open">
                 <div id="my_popup">
                   <%= render 'about' %>
