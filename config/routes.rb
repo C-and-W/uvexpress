@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :origins
   resources :destinations
   root 'destinations#new'
   get '/two', to: 'pages#home_two', as: :home_two

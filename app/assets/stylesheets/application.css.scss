@@ -107,7 +107,9 @@
 }
 
 #i-maps2, #i-menu2{
-  margin-top:58vh;
+  bottom:0;
+  position: absolute;
+  margin-bottom: 20px;
 }
 
 #i-maps1, #i-maps2{
