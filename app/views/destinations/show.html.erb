@@ -17,11 +17,47 @@
                     </div>
                     </form>
                 </div>
-                <input type="image" src="/assets/hamburger menu 1.png" alt="Menus" id="i-menu2" class="i-menu my_popup_open">
+                <div class="t-td1" style=" margin-left:-4%;margin-top: 4vh; font-family: 'Open Sans', sans-serif; color: #5388AD; font-size: 16px; font-weight: bold; background-color:white; height:70%; width:108%;">
+                <center>There are 3 terminals near your location!</center>
+                    <div id="t-table-wrapper"><center>
+                        <table id="t-table">
+                            <tr>
+                                <!-- IROW MO NA LANG TO KESA TABLE-->
+                                <td class="td-t-name"><div class="t-name">SM Southmall</div>5:30 am to 10:00 am</td>
+                                <td class="td-t-via"><div class="t-via"><li>Ayala, Makati via Skyway</li></div></td>
+                            </tr>
+                            <tr>
+                                <td class="td-t-name"><div class="t-name">Alabang Town Center</div><br>6:00 am to 10:00 am</td>
+                                <td><div class="t-via"><li>Ayala, Makati via Skyway</li></div></td>
+                            </tr>
+                            <tr>
+                                <td class="td-t-name"><div class="t-name">Festival Mall</div>6:00 am to 10:00 am</td>
+                                <td>
+                                    <div class="t-via"><li>Ayala, Makati via Skyway</li>
+                                    <li>SM MOA via Skyway</li>
+                                    <li>Ortigas via C5</li>
+                                    <li>Market Market! via C5</li></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="td-t-name"><div class="t-name">BF Resort Village</div>5:30 am to 10:00 am</td>
+                                <td><div class="t-via"><li>Ayala, Makati via Skyway</li></div></td>
+                            </tr>
+                            <tr>
+                                <td class="td-t-name"><div class="t-name">Casimiro, Las Pinas</div>6:00 am to 10:00 am</td>
+                                <td><div class="t-via"><li>Ayala, Makati via Skyway</li></div></td>
+                            </tr>
+                        </table>
+                        </center>
+                        </div>
+                        <input type="image" src="/assets/hamburger menu 2.png" alt="Menus" id="i-menu2" class="i-menu my_popup_open">
+                        </div>
+                
                 <div id="my_popup">
                     <%= render 'about' %>
                 </div>
             </div>
+
             <div id="map"class="col-md-8" style="min-height: 100vh; background-color: #E4E2E1;">
             </div>
         </div>
@@ -84,6 +120,14 @@ if (navigator.geolocation) { //Checks if browser supports geolocation
          directionsDisplay.setDirections(response);
        }
      });
+            <% @terminals.each do |t| %>
+                 var marker = new google.maps.Marker({
+                  position: new google.maps.LatLng( <%=t.latitude%>,<%=t.longitude%>),
+                  map: map,
+                  title: ''
+              });
+            <% end %>
+
    });
  }
 }
