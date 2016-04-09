@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
 
+  resources :terminals
   resources :origins
   resources :destinations
   root 'destinations#new'
   get '/two', to: 'pages#home_two', as: :home_two
   get '/about', to: 'pages#about'
-  get '/terminals', to: 'pages#terminals', as: :terminals
+  #get '/terminals', to: 'pages#terminals', as: :terminals
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
