@@ -20,6 +20,10 @@ class DestinationsController < ApplicationController
   def new
     @destination = Destination.new
     @terminals = Terminal.all
+    @hash = Gmaps4rails.build_markers(@terminals) do |terminal, marker|
+      marker.lat terminal.latitude
+      marker.lng terminal.longitude
+end
   end
 
   # GET /destinations/1/edit

@@ -5,16 +5,9 @@
             <div class="col-md-4 i-left">
                 <div><center><%= image_tag 'logo bluebg', :style=>"width: 100%; padding-top: 13vh;" %></center></div>
                 <div id="i-td1"><center>Clueless no more!<br>UV Express schedules, routes,<br>fares, terminals in the Metro.</center></div>
+
                
                   <center>
-
-            <!-- terminals -->
-
-            <% @terminals.each do |t| %>
-              <%= t.name %>
-            <% end %>
-
-            <!-- end of terminals -->
             
 					<%= form_for(@destination) do |f| %>
 					<div class="field" style="display:none;">
@@ -32,8 +25,7 @@
 					    <%= f.submit %>
 					</div>
 					<%end%>
-                  </center>
-                
+                </center>
                 <input type="image" src="/assets/hamburger menu 1.png" alt="Menus" id="i-menu1" class="i-menu my_popup_open">
                 <div id="my_popup">
                   <%= render 'about' %>
@@ -48,20 +40,10 @@
 <script type="text/javascript">
 handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-  markers = handler.addMarkers([
-    {
-      "lat": 14.607325,
-      "lng": 120.990602,
-      "picture": {
-        "url": "/assets/terminals.png",
-        "width":36,
-        "height": 36
-      },
-    }
-  ]);
+  markers = handler.addMarkers(<%=raw @hash.to_json %>);
   handler.bounds.extendWith(markers);
   handler.fitMapToBounds();
-  handler.getMap().setZoom(11);
+  handler.getMap().setZoom(13);
   handler.getMap().setOptions({styles: [{"featureType":"water","stylers":[{"saturation":43},{"lightness":-11},{"hue":"#0088ff"}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"hue":"#ff0000"},{"saturation":-100},{"lightness":99}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"color":"#808080"},{"lightness":54}]},{"featureType":"landscape.man_made","elementType":"geometry.fill","stylers":[{"color":"#ece2d9"}]},{"featureType":"poi.park","elementType":"geometry.fill","stylers":[{"color":"#ccdca1"}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"color":"#767676"}]},{"featureType":"road","elementType":"labels.text.stroke","stylers":[{"color":"#ffffff"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"landscape.natural","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#b8cb93"}]},{"featureType":"poi.park","stylers":[{"visibility":"on"}]},{"featureType":"poi.sports_complex","stylers":[{"visibility":"on"}]},{"featureType":"poi.medical","stylers":[{"visibility":"on"}]},{"featureType":"poi.business","stylers":[{"visibility":"simplified"}]}]});
 });
 
