@@ -19,6 +19,7 @@ class DestinationsController < ApplicationController
   # GET /destinations/new
   def new
     @destination = Destination.new
+    @terminals = Terminal.all
   end
 
   # GET /destinations/1/edit

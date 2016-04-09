@@ -7,6 +7,15 @@
                 <div id="i-td1"><center>Clueless no more!<br>UV Express schedules, routes,<br>fares, terminals in the Metro.</center></div>
                
                   <center>
+
+            <!-- terminals -->
+
+            <% @terminals.each do |t| %>
+              <%= t.name %>
+            <% end %>
+
+            <!-- end of terminals -->
+            
 					<%= form_for(@destination) do |f| %>
 					<div class="field" style="display:none;">
 				    <%= f.label :latitude %><br>
