@@ -9,11 +9,11 @@
                         <%= image_tag 'location to destination.png', :style => "height: 100px; margin-left: 15px;"%>
                     </div>
                     <div class="col-xs-8">
-                        <center><input id="i-origin" class="i-search" type="text" name="origin" placeholder="SEARCH ORIGIN" value=<%= params['origin'] %>></center>
-                      <center><input id="i-destination2" class="i-search" type="text" name="destination" value=<%=params['destination']%>></center>
+                        <center><input id="i-origin" class="i-search" type="text" name="origin" placeholder="SEARCH ORIGIN"></center>
+                      <center><input id="i-destination2" class="i-search" type="text" name="destination" value=<%= @destination.address %>></center>
                     </div>
                     <div class="col-xs-2">
-                        <input type="image" src="/assets/reverse.png" alt="Reverse" id="i-reverse1" class="i-reverse" onclick="reverse(); calcRoute2();">
+                        <input type="image" src="/assets/reverse.png" alt="Reverse" id="i-reverse1" class="i-reverse" onclick="for_reverse(event);">
                     </div>
                     </form>
                 </div>
@@ -36,10 +36,7 @@ function reverse() {
     document.getElementById("i-origin").value = destination;
     document.getElementById("i-destination2").value = origin;
 }
-</script>
 
-
-<script type="text/javascript">
 handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
   handler.bounds.extendWith(markers);
@@ -47,16 +44,20 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
   handler.getMap().setZoom(17);
   handler.getMap().setOptions({styles: [{"featureType":"water","stylers":[{"saturation":43},{"lightness":-11},{"hue":"#0088ff"}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"hue":"#ff0000"},{"saturation":-100},{"lightness":99}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"color":"#808080"},{"lightness":54}]},{"featureType":"landscape.man_made","elementType":"geometry.fill","stylers":[{"color":"#ece2d9"}]},{"featureType":"poi.park","elementType":"geometry.fill","stylers":[{"color":"#ccdca1"}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"color":"#767676"}]},{"featureType":"road","elementType":"labels.text.stroke","stylers":[{"color":"#ffffff"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"landscape.natural","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#b8cb93"}]},{"featureType":"poi.park","stylers":[{"visibility":"on"}]},{"featureType":"poi.sports_complex","stylers":[{"visibility":"on"}]},{"featureType":"poi.medical","stylers":[{"visibility":"on"}]},{"featureType":"poi.business","stylers":[{"visibility":"simplified"}]}]});
 });
+
 function showlocation() {
    // One-shot position request.
    navigator.geolocation.getCurrentPosition(callback);
 }
+
 function callback(position) {
    document.getElementById('latitude').innerHTML = position.coords.latitude;
    document.getElementById('longitude').innerHTML = position.coords.longitude;
 }
+
 var directionsDisplay = new google.maps.DirectionsRenderer();
 var directionsService = new google.maps.DirectionsService();
+
 function calcRoute() {
 if (navigator.geolocation) { //Checks if browser supports geolocation
    navigator.geolocation.getCurrentPosition(function (position) {                                                              //This gets the
@@ -93,9 +94,10 @@ if (navigator.geolocation) { //Checks if browser supports geolocation
    });
  }
 }
- window.onload = calcRoute;
+
+window.onload = calcRoute;
  
- function calcRoute2() {
+function calcRoute2() {
 if (navigator.geolocation) { //Checks if browser supports geolocation
    navigator.geolocation.getCurrentPosition(function (position) {                                                              //This gets the
      var latitude = position.coords.latitude;                    //users current
@@ -130,5 +132,12 @@ if (navigator.geolocation) { //Checks if browser supports geolocation
      });
    });
  }
+}
+
+
+function for_reverse(e) {
+   e.preventDefault();
+   reverse();
+   calcRoute2();
 }
 </script>
