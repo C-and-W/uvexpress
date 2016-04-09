@@ -23,6 +23,11 @@ class DestinationsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@terminals) do |terminal, marker|
       marker.lat terminal.latitude
       marker.lng terminal.longitude
+       marker.picture({
+       "url" => "/assets/term.png",
+       "width" =>  30,        
+       "height" => 30
+       })
 end
   end
 
