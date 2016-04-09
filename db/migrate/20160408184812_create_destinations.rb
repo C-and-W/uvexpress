@@ -6,6 +6,7 @@ class CreateDestinations < ActiveRecord::Migration
       t.string :address
       t.text :description
       t.string :title
+      t.integer :counter, default: 0
 
       t.timestamps null: false
     end

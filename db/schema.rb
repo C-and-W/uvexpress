@@ -19,8 +19,9 @@ ActiveRecord::Schema.define(version: 20160409060154) do
     t.string   "address"
     t.text     "description"
     t.string   "title"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "counter",     default: 0
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "origins", force: :cascade do |t|

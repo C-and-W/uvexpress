@@ -13,7 +13,7 @@
                       <center><input id="i-destination2" class="i-search" type="text" name="destination" value=<%= @destination.address %>></center>
                     </div>
                     <div class="col-xs-2">
-                        <input type="image" src="/assets/reverse.png" alt="Reverse" id="i-reverse1" class="i-reverse" onclick="for_reverse(event); calcRoute2();">
+                        <input type="image" src="/assets/reverse.png" alt="Reverse" id="i-reverse1" class="i-reverse" onclick="for_reverse(event); calcroute2();">
                     </div>
                     </form>
                 </div>
@@ -134,9 +134,19 @@ if (navigator.geolocation) { //Checks if browser supports geolocation
  }
 }
 
+/* original */
+var destination2 = document.getElementById("i-destination2").value;
+var origin2 = document.getElementById("i-origin").value;
 
 function for_reverse(e) {
    e.preventDefault();
    reverse();
+   // if (destination2 == document.getElementById("i-destination2").value){
+   //  calcRoute();
+   // }
+   // else {
+   //  calcRoute2();
+   // }
 }
+
 </script>
