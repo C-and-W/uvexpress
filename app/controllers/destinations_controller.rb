@@ -26,8 +26,14 @@ class DestinationsController < ApplicationController
       marker.lat terminal.latitude
       marker.lng terminal.longitude
        marker.infowindow terminal.name
+       marker.picture({
+       "url" => "http://i.stack.imgur.com/cdiAE.png",
+       "width" =>  30,        
+       "height" => 30
+       })
     end
   end
+
 
   # GET /destinations/1/edit
   def edit

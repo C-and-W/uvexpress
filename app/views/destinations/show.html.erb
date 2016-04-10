@@ -124,7 +124,8 @@ if (navigator.geolocation) { //Checks if browser supports geolocation
                  var marker = new google.maps.Marker({
                   position: new google.maps.LatLng( <%=t.latitude%>,<%=t.longitude%>),
                   map: map,
-                  title: ''
+                  title: '',
+                  icon:"http://i.stack.imgur.com/cdiAE.png",
               });
             <% end %>
 
