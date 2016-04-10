@@ -10,8 +10,10 @@ class DestinationsController < ApplicationController
   # GET /destinations/1
   # GET /destinations/1.json
   def show
-        @terminals = Terminal.all
-        @hash = Gmaps4rails.build_markers(@terminals) do |terminal, marker|
+    @new_origin = Origin.new
+    @new_destination = Destination.new
+    @terminals = Terminal.all
+    @hash = Gmaps4rails.build_markers(@terminals) do |terminal, marker|
       marker.lat terminal.latitude
       marker.lng terminal.longitude
        marker.infowindow terminal.name
@@ -20,7 +22,6 @@ class DestinationsController < ApplicationController
 
   # GET /destinations/new
   def new
-    @origin = Origin.new
     @destination = Destination.new
     @terminals = Terminal.all
     @hash = Gmaps4rails.build_markers(@terminals) do |terminal, marker|

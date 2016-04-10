@@ -4,19 +4,23 @@
             <div class="col-md-4" style="background-color:#5388AD; height: 100vh;">
                 <div><center><%= image_tag 'logo-bluebg', :style=>"width: 100%; padding-top: 3vh;" %></center></div>
                 <div class="">
-                    <form class="row" style="margin-top:4vh;" id="show-form">
+                    <div class="row" style="margin-top:4vh;">
                         <div class="col-xs-2">
                         <%= image_tag 'location to destination.png', :style => "height: 15vh; margin-left: -20px;"%>
                     </div>
                     <div class="col-xs-8">
-                        <center><input id="i-origin" class="i-search" type="text" name="origin" placeholder="SEARCH ORIGIN" onkeypress="enter(event);"></center>
-                      <center><input id="i-destination2" class="i-search" type="text" name="destination" value=<%= @destination.address %> onkeypress="enter(event);"></center>
+                      <%= form_for @new_origin, url: {action: "create"}, html: {id: "origin-form"} do |f| %>
+                        <center><%= f.text_field :address, id: "i-origin", class: "i-search", placeholder: "SEARCH ORIGIN", onkeypress: "enter(event);" %></center>
+                      <% end %>
+                      <%= form_for @new_destination, url: {action: "create"}, html: {id: "origin-destination"} do |f| %>
+                        <center><%= f.text_field :address, id: "i-destination2", class: "i-search", value: "#{@destination.address}", onkeypress: "enter_destination(event);" %></center>
+                      <% end %>
                     </div>
                     <div class="col-xs-2" style="padding-top:10px;">
                         <input type="image" src="/assets/reverse.png" alt="Reverse" id="i-reverse1" class="i-reverse" onclick="for_reverse(event);">
                     </div>
 
-                    </form>
+                    </div>
                 </div>
                 <div class="t-td1" style=" margin-left:-4%;margin-top: 4vh; font-family: 'Open Sans', sans-serif; color: #5388AD; font-size: 16px; font-weight: bold; background-color:white; height:70%; width:108%; padding-top:30px;">
                 <center>There are <span id="counter">0</span> terminals near your location!</center>
@@ -70,7 +74,13 @@
 function enter(event) {
     if (event.which == 13 || event.keyCode == 13) {
         event.preventDefault();
-        document.getElementById("show-form").submit();
+        //document.getElementById("show-form").submit();
+    }
+};
+
+function enter_destination(event) {
+    if (event.which == 13 || event.keyCode == 13) {
+        document.getElementById("destination-form").submit();
     }
 };
 
