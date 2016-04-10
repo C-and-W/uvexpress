@@ -11,7 +11,6 @@ class DestinationsController < ApplicationController
   # GET /destinations/1.json
   def show
     @new_origin = Origin.new
-    @new_destination = Destination.new
     @terminals = Terminal.all
     @hash = Gmaps4rails.build_markers(@terminals) do |terminal, marker|
       marker.lat terminal.latitude

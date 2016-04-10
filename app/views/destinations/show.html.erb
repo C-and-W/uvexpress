@@ -9,10 +9,10 @@
                         <%= image_tag 'location to destination.png', :style => "height: 15vh; margin-left: -20px;"%>
                     </div>
                     <div class="col-xs-8">
-                      <%= form_for @new_origin, url: {action: "create"}, html: {id: "origin-form"} do |f| %>
+                      <%= form_for @new_origin, url: {action: "update"}, html: {id: "origin-form"} do |f| %>
                         <center><%= f.text_field :address, id: "i-origin", class: "i-search", placeholder: "SEARCH ORIGIN", onkeypress: "enter(event);" %></center>
                       <% end %>
-                      <%= form_for @new_destination, url: {action: "create"}, html: {id: "origin-destination"} do |f| %>
+                      <%= form_for @destination, url: {action: "update"}, html: {id: "origin-destination"} do |f| %>
                         <center><%= f.text_field :address, id: "i-destination2", class: "i-search", value: "#{@destination.address}", onkeypress: "enter_destination(event);" %></center>
                       <% end %>
                     </div>
