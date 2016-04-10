@@ -1,8 +1,9 @@
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></script>
 <div id="body-home">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-4" style="background-color:#5388AD; height: 100vh;">
-                <div><center><%= image_tag 'logo bluebg', :style=>"width: 100%; padding-top: 3vh;" %></center></div>
+                <div><center><%= image_tag 'logo-bluebg', :style=>"width: 100%; padding-top: 3vh;" %></center></div>
                 <div class="">
                     <form class="row" style="margin-top:4vh;">
                         <div class="col-xs-2">
@@ -50,7 +51,7 @@
                         </table>
                         </center>
                         </div>
-                        <input type="image" src="/assets/hamburger menu 2.png" alt="Menus" id="i-menu2" class="i-menu my_popup_open">
+                        <input type="image" src="/assets/hamburger-menu-2.png" alt="Menus" id="i-menu2" class="i-menu my_popup_open">
                         </div>
                 
                 <div id="my_popup">
@@ -124,8 +125,11 @@ if (navigator.geolocation) { //Checks if browser supports geolocation
                  var marker = new google.maps.Marker({
                   position: new google.maps.LatLng( <%=t.latitude%>,<%=t.longitude%>),
                   map: map,
-                  title: ''
+                  title: '',
+                  icon:"http://i.stack.imgur.com/cdiAE.png",
               });
+              var distance = google.maps.geometry.spherical.computeDistanceBetween(coords, new google.maps.LatLng(<%=t.latitude%>,<%=t.longitude%>));
+              window.alert(distance);
             <% end %>
 
    });
