@@ -4,13 +4,13 @@
             <div class="col-md-4" style="background-color:#5388AD; height: 100vh;">
                 <div><center><%= image_tag 'logo-bluebg', :style=>"width: 100%; padding-top: 3vh;" %></center></div>
                 <div class="">
-                    <form class="row" style="margin-top:4vh;">
+                    <form class="row" style="margin-top:4vh;" id="show-form">
                         <div class="col-xs-2">
                         <%= image_tag 'location to destination.png', :style => "height: 15vh; margin-left: -20px;"%>
                     </div>
                     <div class="col-xs-8">
-                        <center><input id="i-origin" class="i-search" type="text" name="origin" placeholder="SEARCH ORIGIN"></center>
-                      <center><input id="i-destination2" class="i-search" type="text" name="destination" value=<%= @destination.address %>></center>
+                        <center><input id="i-origin" class="i-search" type="text" name="origin" placeholder="SEARCH ORIGIN" onkeypress="enter(event);"></center>
+                      <center><input id="i-destination2" class="i-search" type="text" name="destination" value=<%= @destination.address %> onkeypress="enter(event);"></center>
                     </div>
                     <div class="col-xs-2" style="padding-top:10px;">
                         <input type="image" src="/assets/reverse.png" alt="Reverse" id="i-reverse1" class="i-reverse" onclick="for_reverse(event);">
@@ -65,9 +65,14 @@
     </div>
 </div>
 
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></script>
-
 <script type="text/javascript">
+
+function enter(event) {
+    if (event.which == 13 || event.keyCode == 13) {
+        event.preventDefault();
+        document.getElementById("show-form").submit();
+    }
+};
 
 function reverse() {
     var destination = document.getElementById("i-destination2").value;
@@ -198,18 +203,6 @@ function for_reverse(e) {
     calcRoute2();
    }
 }
-
-
-$(document).ready(function(){
-  var array = [1, 2, 3, 4, 5];
-    $.ajax({
-        url : "/destinations",
-        type : "post",
-        data : { data_value: JSON.stringify(array) }
-    });
-});
-
-
 
 
 </script>
