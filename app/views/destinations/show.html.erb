@@ -1,69 +1,4 @@
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></script>
-<div id="body-home">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-4" style="background-color:#5388AD; height: 100vh;">
-                <div><center><%= image_tag 'logo-bluebg', :style=>"width: 100%; padding-top: 3vh;" %></center></div>
-                <div class="">
-                    <form class="row" style="margin-top:4vh;">
-                        <div class="col-xs-2">
-                        <%= image_tag 'location to destination.png', :style => "height: 15vh; margin-left: -20px;"%>
-                    </div>
-                    <div class="col-xs-8">
-                        <center><input id="i-origin" class="i-search" type="text" name="origin" placeholder="SEARCH ORIGIN" ></center>
-                      <center><input id="i-destination2" class="i-search" type="text" name="destination" value=<%= @destination.address %>></center>
-                    </div>
-                    <div class="col-xs-2" style="padding-top:10px;">
-                        <input type="image" src="/assets/reverse.png" alt="Reverse" id="i-reverse1" class="i-reverse" onclick="for_reverse(event);">
-                    </div>
-                    </form>
-                </div>
-                <div class="t-td1" style=" margin-left:-4%;margin-top: 4vh; font-family: 'Open Sans', sans-serif; color: #5388AD; font-size: 16px; font-weight: bold; background-color:white; height:70%; width:108%; padding-top:30px;">
-                <center>There are 3 terminals near your location!</center>
-                    <div id="t-table-wrapper"><center>
-                        <table id="t-table">
-                            <tr>
-                                <!-- IROW MO NA LANG TO KESA TABLE-->
-                                <td class="td-t-name"><div class="t-name">SM Southmall</div>5:30 am to 10:00 am</td>
-                                <td class="td-t-via"><div class="t-via"><li>Ayala, Makati via Skyway</li></div></td>
-                            </tr>
-                            <tr>
-                                <td class="td-t-name"><div class="t-name">Alabang Town Center</div><br>6:00 am to 10:00 am</td>
-                                <td><div class="t-via"><li>Ayala, Makati via Skyway</li></div></td>
-                            </tr>
-                            <tr>
-                                <td class="td-t-name"><div class="t-name">Festival Mall</div>6:00 am to 10:00 am</td>
-                                <td>
-                                    <div class="t-via"><li>Ayala, Makati via Skyway</li>
-                                    <li>SM MOA via Skyway</li>
-                                    <li>Ortigas via C5</li>
-                                    <li>Market Market! via C5</li></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="td-t-name"><div class="t-name">BF Resort Village</div>5:30 am to 10:00 am</td>
-                                <td><div class="t-via"><li>Ayala, Makati via Skyway</li></div></td>
-                            </tr>
-                            <tr>
-                                <td class="td-t-name"><div class="t-name">Casimiro, Las Pinas</div>6:00 am to 10:00 am</td>
-                                <td><div class="t-via"><li>Ayala, Makati via Skyway</li></div></td>
-                            </tr>
-                        </table>
-                        </center>
-                        </div>
-                        <input type="image" src="/assets/hamburger-menu-2.png" alt="Menus" id="i-menu2" class="i-menu my_popup_open">
-                        </div>
-                
-                <div id="my_popup">
-                    <%= render 'about' %>
-                </div>
-            </div>
-
-            <div id="map"class="col-md-8" style="min-height: 100vh; background-color: #E4E2E1;">
-            </div>
-        </div>
-    </div>
-</div>
 
 <script type="text/javascript">
 
@@ -121,6 +56,7 @@ if (navigator.geolocation) { //Checks if browser supports geolocation
          directionsDisplay.setDirections(response);
        }
      });
+     <%counter=0%>
             <% @terminals.each do |t| %>
                  var marker = new google.maps.Marker({
                   position: new google.maps.LatLng( <%=t.latitude%>,<%=t.longitude%>),
@@ -129,7 +65,9 @@ if (navigator.geolocation) { //Checks if browser supports geolocation
                   icon:"http://i.stack.imgur.com/cdiAE.png",
               });
               var distance = google.maps.geometry.spherical.computeDistanceBetween(coords, new google.maps.LatLng(<%=t.latitude%>,<%=t.longitude%>));
-              window.alert(distance);
+              if (distance<=1000){
+                <%counter=counter+1%>
+              }
             <% end %>
 
    });
@@ -191,3 +129,69 @@ function for_reverse(e) {
 }
 
 </script>
+
+<div id="body-home">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4" style="background-color:#5388AD; height: 100vh;">
+                <div><center><%= image_tag 'logo-bluebg', :style=>"width: 100%; padding-top: 3vh;" %></center></div>
+                <div class="">
+                    <form class="row" style="margin-top:4vh;">
+                        <div class="col-xs-2">
+                        <%= image_tag 'location to destination.png', :style => "height: 15vh; margin-left: -20px;"%>
+                    </div>
+                    <div class="col-xs-8">
+                        <center><input id="i-origin" class="i-search" type="text" name="origin" placeholder="SEARCH ORIGIN"></center>
+                      <center><input id="i-destination2" class="i-search" type="text" name="destination" value=<%= @destination.address %>></center>
+                    </div>
+                    <div class="col-xs-2" style="padding-top:10px;">
+                        <input type="image" src="/assets/reverse.png" alt="Reverse" id="i-reverse1" class="i-reverse" onclick="for_reverse(event); calcRoute2();">
+                    </div>
+                    </form>
+                </div>
+                <div class="t-td1" style=" margin-left:-4%;margin-top: 4vh; font-family: 'Open Sans', sans-serif; color: #5388AD; font-size: 16px; font-weight: bold; background-color:white; height:70%; width:108%; padding-top:30px;">
+                <center>There are <%=counter%> terminals near your location!</center>
+                    <div id="t-table-wrapper"><center>
+                        <table id="t-table">
+                            <tr>
+                                <!-- IROW MO NA LANG TO KESA TABLE-->
+                                <td class="td-t-name"><div class="t-name">SM Southmall</div>5:30 am to 10:00 am</td>
+                                <td class="td-t-via"><div class="t-via"><li>Ayala, Makati via Skyway</li></div></td>
+                            </tr>
+                            <tr>
+                                <td class="td-t-name"><div class="t-name">Alabang Town Center</div><br>6:00 am to 10:00 am</td>
+                                <td><div class="t-via"><li>Ayala, Makati via Skyway</li></div></td>
+                            </tr>
+                            <tr>
+                                <td class="td-t-name"><div class="t-name">Festival Mall</div>6:00 am to 10:00 am</td>
+                                <td>
+                                    <div class="t-via"><li>Ayala, Makati via Skyway</li>
+                                    <li>SM MOA via Skyway</li>
+                                    <li>Ortigas via C5</li>
+                                    <li>Market Market! via C5</li></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="td-t-name"><div class="t-name">BF Resort Village</div>5:30 am to 10:00 am</td>
+                                <td><div class="t-via"><li>Ayala, Makati via Skyway</li></div></td>
+                            </tr>
+                            <tr>
+                                <td class="td-t-name"><div class="t-name">Casimiro, Las Pinas</div>6:00 am to 10:00 am</td>
+                                <td><div class="t-via"><li>Ayala, Makati via Skyway</li></div></td>
+                            </tr>
+                        </table>
+                        </center>
+                        </div>
+                        <input type="image" src="/assets/hamburger-menu-2.png" alt="Menus" id="i-menu2" class="i-menu my_popup_open">
+                        </div>
+                
+                <div id="my_popup">
+                    <%= render 'about' %>
+                </div>
+            </div>
+
+            <div id="map"class="col-md-8" style="min-height: 100vh; background-color: #E4E2E1;">
+            </div>
+        </div>
+    </div>
+</div>
