@@ -130,19 +130,31 @@ if (navigator.geolocation) { //Checks if browser supports geolocation
          directionsDisplay.setDirections(response);
        }
      });
+            var setdis=20000;
             var counter = 0;
             var terms = [];
             <% @terminals.each do |t| %>
-                 var marker = new google.maps.Marker({
+              var distance1 = google.maps.geometry.spherical.computeDistanceBetween(coords, new google.maps.LatLng(<%=t.latitude%>,<%=t.longitude%>));
+                
+                console.log(distance1);
+                if (distance1<=setdis){
+                  var marker = new google.maps.Marker({
                   position: new google.maps.LatLng( <%=t.latitude%>,<%=t.longitude%>),
                   map: map,
                   title: '',
-                  icon:"http://i.stack.imgur.com/cdiAE.png",
+                  icon:"https://s3.amazonaws.com/uvexpress/t2-b.png",
               });
+                }
+                else{var marker = new google.maps.Marker({
+                  position: new google.maps.LatLng( <%=t.latitude%>,<%=t.longitude%>),
+                  map: map,
+                  title: '',
+                  icon:"https://s3.amazonaws.com/uvexpress/t1-b.png",
+              });}
               var distance = google.maps.geometry.spherical.computeDistanceBetween(coords, new google.maps.LatLng(<%=t.latitude%>,<%=t.longitude%>));
               
               console.log(distance);
-              if (distance<=100000){
+              if (distance<=setdis){
                 terms.push("<%=t.name%>");
                 counter = counter + 1;
               }
