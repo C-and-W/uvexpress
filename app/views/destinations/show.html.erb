@@ -26,8 +26,8 @@
                 <center>There are <span id="counter">0</span> terminals near your location!</center>
                 
                     <div id="t-table-wrapper" style="padding-top:15px;margin-left:20px;margin-right:20px;"><center>
-                        <table id="t-table">
-                        <% @terminals.take(3).each do |t| %>
+                        <table id="t-table" style="width:100%;">
+                        <% @terminals.take(5).each do |t| %>
                             <tr>
                                 <!-- IROW MO NA LANG TO KESA TABLE-->
                                 <td class="td-t-name"><%=link_to t.name, terminal_path(t.id)%><br>5:30 am to 10:00 am</td>
@@ -142,7 +142,7 @@ if (navigator.geolocation) { //Checks if browser supports geolocation
               var distance = google.maps.geometry.spherical.computeDistanceBetween(coords, new google.maps.LatLng(<%=t.latitude%>,<%=t.longitude%>));
               
               console.log(distance);
-              if (distance<=10000){
+              if (distance<=100000){
                 terms.push("<%=t.name%>");
                 counter = counter + 1;
               }
@@ -154,8 +154,8 @@ if (navigator.geolocation) { //Checks if browser supports geolocation
             var $mTable = $("#t-table");
             $mTable.find('tbody').html("");
             for(var i = 0; i < counter; i++) {
-              var tempRow = "<tr>";
-              tempRow+=terms.pop().ToString();
+              var tempRow = "<tr><td class='td-t-name'>"+terms[i];
+              tempRow+="<td class='td-t-via'></td>";
               tempRow += "</tr>";
 
               $mTable.find('tbody').append(tempRow);
