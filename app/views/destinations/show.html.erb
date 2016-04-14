@@ -142,7 +142,7 @@ if (navigator.geolocation) { //Checks if browser supports geolocation
               var distance = google.maps.geometry.spherical.computeDistanceBetween(coords, new google.maps.LatLng(<%=t.latitude%>,<%=t.longitude%>));
               
               console.log(distance);
-              if (distance<=3000){
+              if (distance<=10000){
                 terms.push("<%=t.name%>");
                 counter = counter + 1;
               }
