@@ -27,7 +27,14 @@
                 
                     <div id="t-table-wrapper" style="padding-top:15px;margin-left:20px;margin-right:20px;"><center>
                         <table id="t-table" style="width:100%;">
-                        
+                        <% @terminals.take(5).each do |t| %>
+                            <tr>
+                                <!-- IROW MO NA LANG TO KESA TABLE-->
+                                <td class="td-t-name"><%=link_to t.name, terminal_path(t.id)%><br>5:30 am to 10:00 am</td>
+                                <td class="td-t-via">Ayala, Makati via Skyway</td>
+                            </tr>
+                        <%end%>
+
                         </table>
                         </center>
                         </div>
@@ -126,7 +133,6 @@ if (navigator.geolocation) { //Checks if browser supports geolocation
             var setdis=20000;
             var counter = 0;
             var terms = [];
-            var infowindow = new google.maps.InfoWindow();
             <% @terminals.each do |t| %>
               var distance1 = google.maps.geometry.spherical.computeDistanceBetween(coords, new google.maps.LatLng(<%=t.latitude%>,<%=t.longitude%>));
                 
@@ -139,13 +145,7 @@ if (navigator.geolocation) { //Checks if browser supports geolocation
                   icon:"https://s3.amazonaws.com/uvexpress/t2-b.png",
 
               });
-            var content ="<%=t.name%>";
-                    google.maps.event.addListener(marker, 'click', (function(marker, content) {
-            return function() {
-                infowindow.setContent(content);
-                infowindow.open(map, marker);
-            }
-        })(marker, content));
+
 
                 }
                 else{var marker = new google.maps.Marker({
@@ -155,13 +155,6 @@ if (navigator.geolocation) { //Checks if browser supports geolocation
                   icon:"https://s3.amazonaws.com/uvexpress/t1-b.png",
 
               });
-                  var content ="<%=t.name%>";
-                          google.maps.event.addListener(marker, 'click', (function(marker, content) {
-            return function() {
-                infowindow.setContent(content);
-                infowindow.open(map, marker);
-            }
-        })(marker, content));
 
               }
 
