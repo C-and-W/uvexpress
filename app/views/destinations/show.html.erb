@@ -24,34 +24,17 @@
                 </div>
                 <div class="t-td1" style=" margin-left:-4%;margin-top: 4vh; font-family: 'Open Sans', sans-serif; color: #5388AD; font-size: 16px; font-weight: bold; background-color:white; height:70%; width:108%; padding-top:30px;">
                 <center>There are <span id="counter">0</span> terminals near your location!</center>
-                    <div id="t-table-wrapper"><center>
+                
+                    <div id="t-table-wrapper" style="padding-top:15px;margin-left:20px;margin-right:20px;"><center>
                         <table id="t-table">
+                        <% @terminals.take(3).each do |t| %>
                             <tr>
                                 <!-- IROW MO NA LANG TO KESA TABLE-->
-                                <td class="td-t-name"><div class="t-name">SM Southmall</div>5:30 am to 10:00 am</td>
-                                <td class="td-t-via"><div class="t-via"><li>Ayala, Makati via Skyway</li></div></td>
+                                <td class="td-t-name"><%=link_to t.name, terminal_path(t.id)%><br>5:30 am to 10:00 am</td>
+                                <td class="td-t-via">Ayala, Makati via Skyway</td>
                             </tr>
-                            <tr>
-                                <td class="td-t-name"><div class="t-name">Alabang Town Center</div><br>6:00 am to 10:00 am</td>
-                                <td><div class="t-via"><li>Ayala, Makati via Skyway</li></div></td>
-                            </tr>
-                            <tr>
-                                <td class="td-t-name"><div class="t-name">Festival Mall</div>6:00 am to 10:00 am</td>
-                                <td>
-                                    <div class="t-via"><li>Ayala, Makati via Skyway</li>
-                                    <li>SM MOA via Skyway</li>
-                                    <li>Ortigas via C5</li>
-                                    <li>Market Market! via C5</li></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="td-t-name"><div class="t-name">BF Resort Village</div>5:30 am to 10:00 am</td>
-                                <td><div class="t-via"><li>Ayala, Makati via Skyway</li></div></td>
-                            </tr>
-                            <tr>
-                                <td class="td-t-name"><div class="t-name">Casimiro, Las Pinas</div>6:00 am to 10:00 am</td>
-                                <td><div class="t-via"><li>Ayala, Makati via Skyway</li></div></td>
-                            </tr>
+                        <%end%>
+
                         </table>
                         </center>
                         </div>
@@ -69,7 +52,15 @@
     </div>
 </div>
 
+<div id="parameters" data-terminal-count="<%= @terminals.count %>">
+  
+</div>
+
 <script type="text/javascript">
+
+$(document).ready(function() {
+
+});
 
 function enter(event) {
     if (event.which == 13 || event.keyCode == 13) {
@@ -140,6 +131,7 @@ if (navigator.geolocation) { //Checks if browser supports geolocation
        }
      });
             var counter = 0;
+            var terms = [];
             <% @terminals.each do |t| %>
                  var marker = new google.maps.Marker({
                   position: new google.maps.LatLng( <%=t.latitude%>,<%=t.longitude%>),
@@ -151,10 +143,23 @@ if (navigator.geolocation) { //Checks if browser supports geolocation
               
               console.log(distance);
               if (distance<=3000){
+                terms.push("<%=t.name%>");
                 counter = counter + 1;
               }
             <% end %>
             document.getElementById('counter').innerHTML = counter;
+
+            
+
+            var $mTable = $("#t-table");
+            $mTable.find('tbody').html("");
+            for(var i = 0; i < counter; i++) {
+              var tempRow = "<tr>";
+              tempRow+=terms.pop().ToString();
+              tempRow += "</tr>";
+
+              $mTable.find('tbody').append(tempRow);
+            }
 
    });
  }
