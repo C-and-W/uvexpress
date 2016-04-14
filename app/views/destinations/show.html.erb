@@ -27,14 +27,7 @@
                 
                     <div id="t-table-wrapper" style="padding-top:15px;margin-left:20px;margin-right:20px;"><center>
                         <table id="t-table" style="width:100%;">
-                        <% @terminals.take(5).each do |t| %>
-                            <tr>
-                                <!-- IROW MO NA LANG TO KESA TABLE-->
-                                <td class="td-t-name"><%=link_to t.name, terminal_path(t.id)%><br>5:30 am to 10:00 am</td>
-                                <td class="td-t-via">Ayala, Makati via Skyway</td>
-                            </tr>
-                        <%end%>
-
+                      
                         </table>
                         </center>
                         </div>
