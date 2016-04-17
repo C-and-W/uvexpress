@@ -9,15 +9,14 @@
                         <%= image_tag 'location to destination.png', :style => "height: 15vh; margin-left: -20px;"%>
                     </div>
                     <div class="col-xs-8">
-                      <%= form_for @new_origin, url: {action: "update"}, html: {id: "origin-form"} do |f| %>
-                        <center><%= f.text_field :address, id: "i-origin", class: "i-search", placeholder: "SEARCH ORIGIN", onkeypress: "enter(event);" %></center>
-                      <% end %>
-                      <%= form_for @destination, url: {action: "update"}, html: {id: "origin-destination"} do |f| %>
-                        <center><%= f.text_field :address, id: "i-destination2", class: "i-search", value: "#{@destination.address}", onkeypress: "enter_destination(event);" %></center>
+                      <%= form_for @destination, url: {action: "update"}, html: {id: "destination-form"} do |f| %>
+                        <center><%= f.text_field :origin_address, id: "i-origin", class: "i-search", value: "#{@destination.origin_address}" %></center>
+                        <center><%= f.text_field :address, id: "i-destination2", class: "i-search", value: "#{@destination.address}"%></center>
+                        <%= submit_tag "", :style => "display: none;" %>
                       <% end %>
                     </div>
                     <div class="col-xs-2" style="padding-top:10px;">
-                        <input type="image" src="/assets/reverse.png" alt="Reverse" id="i-reverse1" class="i-reverse" onclick="for_reverse(event);">
+                        <input type="image" src="/assets/reverse.png" alt="Reverse" id="i-reverse1" class="i-reverse">
                     </div>
 
                     </div>
@@ -64,19 +63,11 @@ function convertEntities(html) {
     return el.firstChild.data;
 }
 
-
-function enter(event) {
-    if (event.which == 13 || event.keyCode == 13) {
-        event.preventDefault();
-        //document.getElementById("show-form").submit();
-    }
-};
-
-function enter_destination(event) {
-    if (event.which == 13 || event.keyCode == 13) {
-        document.getElementById("destination-form").submit();
-    }
-};
+// function enter_destination(e) {
+//     if (e.which == 13 || e.keyCode == 13) {
+//         document.getElementById("destination-form").submit();
+//     }
+// };
 
 function reverse() {
     var destination = document.getElementById("i-destination2").value;
@@ -143,7 +134,6 @@ if (navigator.geolocation) { //Checks if browser supports geolocation
             <% @terminals.each do |t| %>
               var distance1 = google.maps.geometry.spherical.computeDistanceBetween(coords, new google.maps.LatLng(<%=t.latitude%>,<%=t.longitude%>));
                 
-                console.log(distance1);
                 if (distance1<=setdis){
                   var marker = new google.maps.Marker({
                   position: new google.maps.LatLng( <%=t.latitude%>,<%=t.longitude%>),
@@ -179,7 +169,6 @@ var content ="<%=t.name%>";
 
               var distance = google.maps.geometry.spherical.computeDistanceBetween(coords, new google.maps.LatLng(<%=t.latitude%>,<%=t.longitude%>));
               
-              console.log(distance);
               if (distance<=setdis){
                 terms.push(["<%=t.id%>","<%=t.name%>","<%= t.runtime %>"]);
                 routes.push([{terminal: "<%= t.name %>"},{troutes: []}]);
@@ -206,7 +195,6 @@ var content ="<%=t.name%>";
                   //console.log(routes[a][0].troutes);
                   for(var b = 0; b < routes[a][1].troutes.length; b++){
                     tempRow+="<a class='td-t-link' href=/terminals/"+terms[1][0]+"/routes/"+routes[a][1].troutes[b][0].id+">"+routes[a][1].troutes[b][1].name+"</a>"+"<br>";
-                    console.log(tempRow);
                   }
                   
                   //var hit = routes[a];
@@ -263,19 +251,33 @@ if (navigator.geolocation) { //Checks if browser supports geolocation
 }
 
 /* original */
+
 var destination2 = document.getElementById("i-destination2").value;
 var origin2 = document.getElementById("i-origin").value;
 
-function for_reverse(e) {
-   e.preventDefault();
-   reverse();
-   if (destination2 == document.getElementById("i-destination2").value){
+$("#i-reverse1").click(function(e){
+    console.log(origin2, destination2);
+    e.preventDefault();
+    reverse();
+    if (destination2 == document.getElementById("i-destination2").value){
     calcRoute();
    }
    else {
     calcRoute2();
    }
-}
+    //document.getElementById("destination-form").submit();
+});
+
+// function for_reverse(e) {
+//    e.preventDefault();
+//    reverse();
+   // if (destination2 == document.getElementById("i-destination2").value){
+   //  calcRoute();
+   // }
+   // else {
+   //  calcRoute2();
+   // }
+// }
 
 
 });

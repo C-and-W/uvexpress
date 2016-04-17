@@ -1,5 +1,5 @@
 class Origin < ActiveRecord::Base
-  geocoded_by :address
+  belongs_to :destination
   reverse_geocoded_by :latitude, :longitude
-  after_validation :geocode, :reverse_geocode
+  after_validation :reverse_geocode
 end

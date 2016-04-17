@@ -19,9 +19,12 @@ ActiveRecord::Schema.define(version: 20160417090220) do
     t.string   "address"
     t.text     "description"
     t.string   "title"
-    t.integer  "counter",     default: 0
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.integer  "counter",          default: 0
+    t.float    "origin_latitude"
+    t.float    "origin_longitude"
+    t.string   "origin_address"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "dropoff_locations", force: :cascade do |t|
