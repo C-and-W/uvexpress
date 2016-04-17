@@ -82,25 +82,12 @@ function reverse() {
   <%= @terminal.longitude %>
 </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @terminal.address %>
-</p>
 
 <p>
   <strong>Name:</strong>
   <%= @terminal.name %>
 </p>
 
-<p>
-  <strong>Route:</strong>
-  <%= @terminal.route %>
-</p>
-
-<p>
-  <strong>Fare:</strong>
-  <%= @terminal.fare %>
-</p>
 
 <%= link_to 'Edit', edit_terminal_path(@terminal) %> |
 <%= link_to 'Back', terminals_path %>

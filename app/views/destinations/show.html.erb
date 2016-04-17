@@ -58,9 +58,6 @@
 <script type="text/javascript">
 
 $(document).ready(function() {
-
-});
-
 function convertEntities(html) {
     var el = document.createElement("div");
     el.innerHTML = html;
@@ -142,6 +139,7 @@ if (navigator.geolocation) { //Checks if browser supports geolocation
             var terms = [];
             var linkto=[];
             var runtime=[];
+            var routes= [];
             <% @terminals.each do |t| %>
               var distance1 = google.maps.geometry.spherical.computeDistanceBetween(coords, new google.maps.LatLng(<%=t.latitude%>,<%=t.longitude%>));
                 
@@ -154,7 +152,7 @@ if (navigator.geolocation) { //Checks if browser supports geolocation
                   icon:"https://s3.amazonaws.com/uvexpress/t2-b.png",
 
               });
-var content ="<%=t.name%>";
+              var content ="<%=t.name%>";
         google.maps.event.addListener(marker, 'click', (function(marker, content) {
             return function() {
                 infowindow.setContent(content);
@@ -183,23 +181,53 @@ var content ="<%=t.name%>";
               
               console.log(distance);
               if (distance<=setdis){
-                terms.push("<%=t.name%>");
-                linkto.push("<%=t.id%>");
-                runtime.push("<%=t.runtime%>");
+                terms.push(["<%=t.id%>","<%=t.name%>","<%= t.runtime %>"]);
+                routes.push([{terminal: "<%= t.name %>"},{troutes: []}]);
+                //routes["<%= t.name %>"] = []
+                <% t.routes.each do |r| %>
+                  routes[counter][1].troutes.push([{id:"<%= r.id %>"},{name:"<%= r.name %>"}]);
+                <% end %>
                 counter = counter + 1;
               }
             <% end %>
+
+
+
             document.getElementById('counter').innerHTML = counter;
+            // for(var key in objects) {
+            //     var value = objects[key];
+            // }
+            // console.log(routes[0]['SM Southmall']);
+            // for(var a = 0; a < routes.length; i++){
+            //   console.log("meh");
+            // }
+            
+            //console.log(routes[7][1].troutes);
+            //console.log(routes[0][1].troutes[0][1].name);
+           // console.log(routes);
+            
 
             //HERE 
 
             var $mTable = $("#t-table");
             $mTable.find('tbody').html("");
             for(var i = 0; i < counter; i++) {
-              var tempRow = "<tr><td style='height:100%;border-right:none!important;'><div class='td-icon'> </div></td><td class='td-t-name' style='border-left:none!important;'><a class='td-t-link' href=/terminals/"+linkto[i]+">"+terms[i]+"</a>"+"<br>"+runtime[i]+"</td>";
-              tempRow+="<td class='td-t-via'>ROUTES HERE</td>";
+              var tempRow = "<tr><td style='height:100%;border-right:none!important;'><div class='td-icon'> </div></td><td class='td-t-name' style='border-left:none!important;'><a class='td-t-link' href=/terminals/"+terms[i][0]+">"+terms[i][1]+"</a>"+"<br>"+terms[i][2]+"</td>";
+              tempRow+="<td class='td-t-via'>"
+              for(var a = 0; a < routes.length; a++) {
+                if (routes[a][0].terminal == terms[i][1]){
+                  //console.log(routes[a][0].troutes);
+                  for(var b = 0; b < routes[a][1].troutes.length; b++){
+                    tempRow+=routes[a][1].troutes[b][1].name+"<br>";
+                  }
+                  
+                  //var hit = routes[a];
+                }
+              }
+              tempRow+="</td>";
               tempRow += "</tr>";
               $mTable.find('tbody').append(tempRow);
+
               //$mTable.find('tbody').append(convertEntities(tempRow));
             }
 
@@ -260,6 +288,9 @@ function for_reverse(e) {
     calcRoute2();
    }
 }
+
+
+});
 
 
 </script>

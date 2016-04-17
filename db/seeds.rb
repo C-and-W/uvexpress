@@ -69,11 +69,11 @@ DropoffLocation.create(location: 'Makati Ave. (Atrium): access to Peninsula Hote
 DropoffLocation.create(location: 'Ayala MRT: access to EDSA/MRT, SM Makati, Bonifacio Global City, Glorietta, Dasmarinas Village Makati', route_id: 5)
 
 
-Terminal.create(name: 'Pilar Village, Las Pinas', latitude:14.43201772, longitude: 121.01422727)
+Terminal.create(name: 'Pilar Village, Las Pinas', latitude:14.43201772, longitude: 121.01422727, runtime: 'No Available Time')
 Route.create(name: 'Lawton via Coastal rd.', schedule: 'No Available Time', fare: 'P50', terminal_id: 6)
 
 
-Terminal.create(name: 'Marcos Alvarez', latitude:14.43597379, longitude: 121.00892186)
+Terminal.create(name: 'Marcos Alvarez', latitude:14.43597379, longitude: 121.00892186, runtime: 'No Available Time')
 Route.create(name: 'Lawton via Coastal rd.', schedule: 'No Available Time', fare: 'P50', terminal_id: 7)
 
 
