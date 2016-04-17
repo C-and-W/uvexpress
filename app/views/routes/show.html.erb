@@ -109,4 +109,13 @@
   <strong>Last Trip:</strong>
   <%= @route.trip2 %>
 </p>
-
+                  <% if @route.dropoff_locations.present? %>
+                    <p>
+                      <strong>DROP OFF Points:</strong>
+                      <ul>
+                      <% @route.dropoff_locations.each do |d| %>
+                        <li><%= d.location %></li>
+                      <% end %>
+                      </ul>
+                    </p>
+                  <% end %>                  
