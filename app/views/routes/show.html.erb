@@ -68,13 +68,14 @@
                     <span class="sttitle"><%=@route.fare%></span>
                   </div>
                   </div>
+                   <% if @route.dropoff_locations.present? %>
                   <div class="row td-divlink" style="height:12vh; background-color:white;">
                   <div class="col-xs-1"></div>
 
                   <div style="padding-top:0.9vh;" class="col-xs-10" >
                     <span class="ttitle">DROP OFF POINTS</span><br>
                     <span class="sttitle">
-                      <% if @route.dropoff_locations.present? %>
+                     
                     <p>
                       <ul>
                       <% @route.dropoff_locations.each do |d| %>
@@ -82,11 +83,19 @@
                       <% end %>
                       </ul>
                     </p>
-                  <% end %>
+
 
                     </span>
                   </div>
                   </div>
+                  <% end %>
+                   <div class="row td-divlink" style="height:12vh; background-color:white;">
+                     <center><a href="/destinations/<%=@destination.id%>/terminals/<%=@terminal.id%>">
+                       <span class="sttitle1">LOCATE THE TERMINAL</span></a>
+                     </center>
+                   </div>
+
+
                 </div>
 
 

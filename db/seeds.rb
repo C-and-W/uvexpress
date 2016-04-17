@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Terminal.create(name: 'SM Southmall', latitude:14.433158, longitude: 121.01259124, runtime: '5:30AM to 10:00 AM',address:'1168 Alabang - Zapote Rd
-Almanza Uno, Las Pinas')
+Almanza Uno, Las Pinas',count:3)
 Route.create(name: 'Ayala Makati via Skyway', schedule: 'Monday-Saturday', trip1: '5:30 AM', trip2: '10:00 AM', fare: 'P70', terminal_id: 1)
 DropoffLocation.create(location: 'Makati Medical Center: access to Makati Post Office, RCBC Tower, Mapua, PAG-IBIG, Makati Sports Club', route_id: 1)
 DropoffLocation.create(location: 'Adelantado cor. Rufino st.: access to Pasay Road, San Lorenzo Village', route_id: 1)
@@ -21,7 +21,7 @@ DropoffLocation.create(location: 'Dela Costa cor. Makati Ave.: access to BDO, Pa
 DropoffLocation.create(location: 'Makati Ave. (Atrium): access to Peninsula Hotel, Atrium, Makati Stock Exchange', route_id: 1)
 DropoffLocation.create(location: 'Ayala MRT: access to EDSA/MRT, SM Makati, Bonifacio Global City, Glorietta, Dasmarinas Village Makati', route_id: 1)
 
-Terminal.create(name: 'Caltex Las Pinas (in front of Starmall Las Pinas)', latitude:14.45091412, longitude: 120.97947046, runtime: '5:30AM to 10:00 AM')
+Terminal.create(name: 'Caltex Las Pinas (in front of Starmall Las Pinas)', latitude:14.45091412, longitude: 120.97947046, runtime: '5:30AM to 10:00 AM',count:9)
 Route.create(name: 'Ayala Makati via Coastal Mall', schedule: 'Monday-Saturday', trip1: '5:30 AM', trip2: '10:00 AM', fare: 'P65', terminal_id: 2)
 DropoffLocation.create(location: 'Makati Medical Center: access to Makati Post Office, RCBC Tower, Mapua, PAG-IBIG, Makati Sports Club', route_id: 2)
 DropoffLocation.create(location: 'Adelantado cor. Rufino st.: access to Pasay Road, San Lorenzo Village', route_id: 2)
@@ -36,11 +36,11 @@ DropoffLocation.create(location: 'Makati Ave. (Atrium): access to Peninsula Hote
 DropoffLocation.create(location: 'Ayala MRT: access to EDSA/MRT, SM Makati, Bonifacio Global City, Glorietta, Dasmarinas Village Makati', route_id: 2)
 
 
-Terminal.create(name: 'Times st. (in front of Perpetual Help)', latitude:14.44807318, longitude: 120.9852165, runtime: '5:30AM to 9:30AM')
+Terminal.create(name: 'Times st. (in front of Perpetual Help)', latitude:14.44807318, longitude: 120.9852165, runtime: '5:30AM to 9:30AM',count:9)
 Route.create(name: 'Lawton via Coastal', schedule: 'Monday-Saturday', trip1: '5:30 AM', trip2: '9:30 AM', fare: 'P45', terminal_id: 3)
 
 
-Terminal.create(name: 'Jollibee Casimiro', latitude:14.44478504, longitude: 120.99401127, runtime: '6:00AM to 11:00AM')
+Terminal.create(name: 'Jollibee Casimiro', latitude:14.44478504, longitude: 120.99401127, runtime: '6:00AM to 11:00AM',count:0)
 Route.create(name: 'Ayala Makati via Skyway', schedule: 'Monday-Saturday', trip1: '6:00 AM', trip2: '11:00 AM', fare: 'P70', terminal_id: 4)
 DropoffLocation.create(location: 'Makati Medical Center: access to Makati Post Office, RCBC Tower, Mapua, PAG-IBIG, Makati Sports Club', route_id: 4)
 DropoffLocation.create(location: 'Adelantado cor. Rufino st.: access to Pasay Road, San Lorenzo Village', route_id: 4)
@@ -55,7 +55,7 @@ DropoffLocation.create(location: 'Makati Ave. (Atrium): access to Peninsula Hote
 DropoffLocation.create(location: 'Ayala MRT: access to EDSA/MRT, SM Makati, Bonifacio Global City, Glorietta, Dasmarinas Village Makati', route_id: 4)
 
 
-Terminal.create(name: 'BF Resort Village, Las Pinas', latitude:14.44238698, longitude: 120.99198103, runtime: '5:30AM to 10:00AM')
+Terminal.create(name: 'BF Resort Village, Las Pinas', latitude:14.44238698, longitude: 120.99198103, runtime: '5:30AM to 10:00AM',count:1)
 Route.create(name: 'Ayala Makati via Skyway', schedule: 'Monday-Saturday', trip1: '5:30 AM', trip2: '10:00 AM', fare: 'P70-P75', terminal_id: 5)
 DropoffLocation.create(location: 'Makati Medical Center: access to Makati Post Office, RCBC Tower, Mapua, PAG-IBIG, Makati Sports Club', route_id: 5)
 DropoffLocation.create(location: 'Adelantado cor. Rufino st.: access to Pasay Road, San Lorenzo Village', route_id: 5)
@@ -70,15 +70,15 @@ DropoffLocation.create(location: 'Makati Ave. (Atrium): access to Peninsula Hote
 DropoffLocation.create(location: 'Ayala MRT: access to EDSA/MRT, SM Makati, Bonifacio Global City, Glorietta, Dasmarinas Village Makati', route_id: 5)
 
 
-Terminal.create(name: 'Pilar Village, Las Pinas', latitude:14.43201772, longitude: 121.01422727, runtime: 'No Available Time')
+Terminal.create(name: 'Pilar Village, Las Pinas', latitude:14.43201772, longitude: 121.01422727, runtime: 'No Available Time',count:0)
 Route.create(name: 'Lawton via Coastal rd.', schedule: 'No Available Time', fare: 'P50', terminal_id: 6)
 
 
-Terminal.create(name: 'Marcos Alvarez', latitude:14.43597379, longitude: 121.00892186, runtime: 'No Available Time')
+Terminal.create(name: 'Marcos Alvarez', latitude:14.43597379, longitude: 121.00892186, runtime: 'No Available Time',count:0)
 Route.create(name: 'Lawton via Coastal rd.', schedule: 'No Available Time', fare: 'P50', terminal_id: 7)
 
 
-Terminal.create(name: 'Park Square Terminal 1st Floor', latitude:14.54911384, longitude: 121.02564812, runtime: '12:30PM to 12:00MN',address:'Park Square, East St, Makati, Metro Manila')
+Terminal.create(name: 'Park Square Terminal 1st Floor', latitude:14.54911384, longitude: 121.02564812, runtime: '12:30PM to 12:00MN',address:'Park Square, East St, Makati, Metro Manila',count:0)
 Route.create(name: 'BF Homes Paranaque via Skyway', schedule: 'Monday-Saturday', trip1: '12:30 PM', trip2: '11:30 PM', fare: 'P70', terminal_id: 8)
 DropoffLocation.create(location: 'Sucat road: access to Santana Grove, Shopwise, Loyola Memorial Park, Medical Center Paranaque, SM BF Paranaque, Jaka Plaza, UPS 5, Greenheights', route_id: 8)
 DropoffLocation.create(location: 'El Grande Ave.: access to Lopez Village, BF Northwest, Ann Arbor Montessori School, Tropical Ave.s', route_id: 8)
@@ -94,7 +94,7 @@ DropoffLocation.create(location: 'West Service Rd. Sun Valley', route_id: 10)
 DropoffLocation.create(location: 'Merville Village', route_id: 10)
 
 
-Terminal.create(name: 'Park Square Terminal 2nd Floor', latitude:14.54911384, longitude: 121.02564812, runtime: '6:00PM to 1:00AM')
+Terminal.create(name: 'Park Square Terminal 2nd Floor', latitude:14.54911384, longitude: 121.02564812, runtime: '6:00PM to 1:00AM',count:0)
 Route.create(name: 'Market Market', schedule: 'Monday-Saturday', trip1: '6:00 PM', trip2: '11:00 PM', fare: 'P30', terminal_id: 9)
 Route.create(name: 'Mckinley Hill', schedule: 'Monday-Saturday', trip1: '6:00 PM', trip2: '1:00 AM', fare: 'P25', terminal_id: 9)
 Route.create(name: 'Antipolo', schedule: '4:00 PM onwards', trip1: '4:00 PM', trip2: '', fare: 'Not Available', terminal_id: 9)
@@ -108,7 +108,7 @@ Route.create(name: 'C-5 Palar', schedule: '4:00 PM onwards', trip1: '4:00 PM', t
 Route.create(name: 'Lower Bicutan via MRT road', schedule: '4:00 PM onwards', trip1: '4:00 PM', trip2: '', fare: 'Not Available', terminal_id: 9)
 Route.create(name: 'FTI-ARCA South', schedule: '4:00 PM onwards', trip1: '4:00 PM', trip2: '', fare: 'Not Available', terminal_id: 9)
 
-Terminal.create(name: 'Makati Cinema Square Terminal', latitude:14.55246158, longitude: 121.01392831, runtime: '5:00PM to 11:00PM')
+Terminal.create(name: 'Makati Cinema Square Terminal', latitude:14.55246158, longitude: 121.01392831, runtime: '5:00PM to 11:00PM',count:0)
 Route.create(name: 'Las Pinas via Skyway', schedule: '', trip1: '5:00 PM', trip2: '11:00PM', fare: 'P60', terminal_id: 10)
 Route.create(name: 'Sucat via Skyway', schedule: '', trip1: '5:00 PM', trip2: '11:00PM', fare: 'P60', terminal_id: 10)
 DropoffLocation.create(location: 'Sucat road: access to Ireneville, Fourth Estate, Fortunata, Valley 2, Vitalez, Barangay Village, Santana Grove, Shopwise, Loyola Memorial Park, Medical Center Paranaque, SM BF Paranaque, Jaka Plaza, UPS 5, Greenheights, SM Hypermarket Sucat, Walter Mart Sucat, Evacom, SM City Sucat', route_id: 24)
@@ -121,7 +121,7 @@ Route.create(name: ' SM Bicutan/Russia', trip1: '5:00 PM', trip2: '11:00PM', far
 DropoffLocation.create(location: 'Dona Solenad Ave.: access to SM City Bicutan', route_id: 26)
 DropoffLocation.create(location: 'Betterliving Russia: Paranaque Doctor’s Hospital, Chateau Elysee', route_id: 26)
 
-Terminal.create(name: 'SM North EDSA Terminal', latitude:14.65616967, longitude: 121.0291792, runtime: '24 hours')
+Terminal.create(name: 'SM North EDSA Terminal', latitude:14.65616967, longitude: 121.0291792, runtime: '24 hours',count:1)
 Route.create(name: 'Project 6/SM North Edsa to Buendia', schedule:'24 hours', trip1: '', trip2: '', fare: 'P30-40', terminal_id: 11)
 DropoffLocation.create(location: 'Quezon Ave. -> access to Fishermall, 
   Sto. Domingo Church', route_id: 27)
@@ -129,11 +129,11 @@ DropoffLocation.create(location: 'Espanya -> access to UST, FEU, Quiapo Church',
 DropoffLocation.create(location: 'Lawton', route_id: 27)
 DropoffLocation.create(location: 'Taft -> access to National Museum, Luneta Park, Kalaw Ave., Adamson University, Philippine Women’s University, DLSU, CSB, Buendia.', route_id: 27)
 
-Terminal.create(name: 'University Mall, Taft Ave. Terminal', latitude:14.56310299, longitude: 120.99465926, runtime: '2:30 to 9:00 PM')
+Terminal.create(name: 'University Mall, Taft Ave. Terminal', latitude:14.56310299, longitude: 120.99465926, runtime: '2:30 to 9:00 PM',count:0)
 Route.create(name: 'Taft Ave. to Sucat via Skyway', schedule:'Monday-Saturday', trip1: '2:30 PM', trip2: '9:00 PM', fare: 'P60', terminal_id: 12)
 DropoffLocation.create(location: 'Sucat road -> access to Ireneville, Fourth Estate, Fortunata, Valley 2, Vitalez, Barangay Village, Santana Grove, Shopwise, Loyola Memorial Park, Medical Center Paranaque, SM BF Paranaque, Jaka Plaza, UPS 5, Greenheights, SM Hypermarket Sucat, Walter Mart Sucat, Evacom, SM City Sucat.', route_id: 28)
 
-Terminal.create(name: 'SM BF Paranaque Terminal', latitude:14.45750707, longitude: 121.03344585, runtime: '24 hours')
+Terminal.create(name: 'SM BF Paranaque Terminal', latitude:14.45750707, longitude: 121.03344585, runtime: '24 hours',count:1)
 Route.create(name: 'SM BF Paranaque Terminal', schedule:'24 hours', trip1:'', trip2: '', fare: 'P60', terminal_id: 13)
 DropoffLocation.create(location: 'Makati Medical Center -> access to Makati Post Office, RCBC Tower, Mapua, PAG-IBIG, Makati Sports Club', route_id: 29)
 DropoffLocation.create(location: 'Adelantado cor. Rufino st. -> access to Pasay Road, San Lorenzo Village', route_id: 29)
@@ -147,13 +147,13 @@ DropoffLocation.create(location: 'Dela Costa cor. Makati Ave. -> access to BDO, 
 DropoffLocation.create(location: 'Makati Ave. (Atrium) -> access to Peninsula Hotel, Atrium, Makati Stock Exchange', route_id: 29)
 DropoffLocation.create(location: 'Ayala MRT -> access to EDSA/MRT, SM Makati, Bonifacio Global City, Glorietta, Dasmarinas Village Makati', route_id: 29)
 
-Terminal.create(name: 'BF Homes El Grande Arcade Terminal', latitude:14.45695725, longitude: 121.00764863, runtime: '6:00AM to 9:00AM')
+Terminal.create(name: 'BF Homes El Grande Arcade Terminal', latitude:14.45695725, longitude: 121.00764863, runtime: '6:00AM to 9:00AM',count:1)
 Route.create(name: 'BF Homes El Grande Arcade Terminal', schedule: '', trip1: '6:00 AM', trip2:'9:00 AM', fare: 'Not Available', terminal_id: 14)
 
-Terminal.create(name: 'BF Homes Phase 1 Terminal', latitude:14.4448528, longitude: 121.02647747, runtime: '6:00AM to 9:00AM')
+Terminal.create(name: 'BF Homes Phase 1 Terminal', latitude:14.4448528, longitude: 121.02647747, runtime: '6:00AM to 9:00AM',count:1)
 Route.create(name: 'BF Homes Phase 1 Terminal', schedule: '', trip1: '6:00 AM', trip2:'9:00 AM', fare: 'Not Available', terminal_id: 15)
 
-Terminal.create(name: 'Riverbanks Terminal', latitude:14.63164705, longitude: 121.08169335, runtime: 'Not Available')
+Terminal.create(name: 'Riverbanks Terminal', latitude:14.63164705, longitude: 121.08169335, runtime: 'Not Available',count:0)
 Route.create(name: 'Ayala Makati', schedule: 'Not Available', trip1: '', trip2:'', fare: 'Not Available', terminal_id: 16)
 Route.create(name: 'Eastwood, Libis', schedule: 'Not Available', trip1: '', trip2:'', fare: 'Not Available', terminal_id: 16)
 Route.create(name: 'Megamall, Ortigas', schedule: 'Not Available', trip1: '', trip2:'', fare: 'Not Available', terminal_id: 16)
