@@ -5,6 +5,8 @@ class CreateTerminals < ActiveRecord::Migration
       t.float :longitude
       t.string :name
       t.string :runtime
+      t.string :address
+      t.integer :count
       
       t.timestamps null: false
     end
