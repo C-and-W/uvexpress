@@ -1,7 +1,10 @@
-<p id="notice"><%= notice %></p>
+<p>
+  <strong>Terminal:</strong>
+  <%= @terminal.name %>
+</p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Route:</strong>
   <%= @route.name %>
 </p>
 
@@ -31,14 +34,12 @@
 </p>
 
 <p>
-  <strong>Fare:</strong>
-  <%= @route.fare %>
+  <strong>First Trip:</strong>
+  <%= @route.trip1 %>
 </p>
 
 <p>
-  <strong>Terminal:</strong>
-  <%= @route.terminal_id %>
+  <strong>Last Trip:</strong>
+  <%= @route.trip2 %>
 </p>
 
-<%= link_to 'Edit', edit_route_path(@route) %> |
-<%= link_to 'Back', routes_path %>

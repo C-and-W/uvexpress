@@ -205,7 +205,8 @@ var content ="<%=t.name%>";
                 if (routes[a][0].terminal == terms[i][1]){
                   //console.log(routes[a][0].troutes);
                   for(var b = 0; b < routes[a][1].troutes.length; b++){
-                    tempRow+="<li>"+routes[a][1].troutes[b][1].name+"</li><br>";
+                    tempRow+="<a class='td-t-link' href=/terminals/"+terms[1][0]+"/routes/"+routes[a][1].troutes[b][0].id+">"+routes[a][1].troutes[b][1].name+"</a>"+"<br>";
+                    console.log(tempRow);
                   }
                   
                   //var hit = routes[a];
