@@ -243,9 +243,10 @@ border:1px solid #E4E2E1!important;
 background-image: url(/assets/nearest-terminals);
 background-size: cover;
 background-position: center;
-height:8vh;
+height:8.2vh;
 width:80%;
 margin-left: 10%;
+
 }
 .td-t-link{
   color:#5388AD;
@@ -263,9 +264,11 @@ margin-left: 10%;
     color:#5388AD;
 }
 .td-t-via{
-  margin-left: -10px;
+  margin-left: -30px;
   width:40%!important;
-  padding:10px;
+  padding-top:5px;
+  padding-bottom:5px;
+
 }
 .t-via{
   margin-left: 20px;
