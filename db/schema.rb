@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160409060154) do
+ActiveRecord::Schema.define(version: 20160417042915) do
 
   create_table "destinations", force: :cascade do |t|
     t.float    "latitude"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20160409060154) do
     t.decimal  "fare"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "runtime"
   end
 
 end

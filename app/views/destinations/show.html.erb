@@ -2,9 +2,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-4" style="background-color:#5388AD; height: 100vh;">
-                <div><center><%= image_tag 'logo-bluebg', :style=>"width: 100%; padding-top: 3vh;" %></center></div>
+                <div><center><%= image_tag '/assets/main-logo', :style=>"width: 80%; padding-top: 2vh;" %></center></div>
                 <div class="">
-                    <div class="row" style="margin-top:4vh;">
+                    <div class="row" style="margin-top:3vh;">
                         <div class="col-xs-2">
                         <%= image_tag 'location to destination.png', :style => "height: 15vh; margin-left: -20px;"%>
                     </div>
@@ -22,10 +22,10 @@
 
                     </div>
                 </div>
-                <div class="t-td1" style=" margin-left:-4%;margin-top: 4vh; font-family: 'Open Sans', sans-serif; color: #5388AD; font-size: 16px; font-weight: bold; background-color:white; height:70%; width:108%; padding-top:30px;">
+                <div class="t-td1" style=" margin-left:-4%;margin-top: 4vh; font-family: 'Open Sans', sans-serif; color: #5388AD; font-size: 16px; font-weight: bold; background-color:white; height:70%; width:108%; padding-top:20px;">
                 <center>There are <span id="counter">0</span> terminals near your location!</center>
                 
-                    <div id="t-table-wrapper" style="padding-top:15px;margin-left:20px;margin-right:20px;"><center>
+                    <div id="t-table-wrapper" style="margin-left:20px;margin-right:20px;margin-top:5px;"><center>
                         <table id="t-table" style="width:100%;">
                         
                             <tr>
@@ -133,6 +133,8 @@ if (navigator.geolocation) { //Checks if browser supports geolocation
             var setdis=20000;
             var counter = 0;
             var terms = [];
+            var linkto=[];
+            var runtime=[];
             <% @terminals.each do |t| %>
               var distance1 = google.maps.geometry.spherical.computeDistanceBetween(coords, new google.maps.LatLng(<%=t.latitude%>,<%=t.longitude%>));
                 
@@ -175,6 +177,8 @@ var content ="<%=t.name%>";
               console.log(distance);
               if (distance<=setdis){
                 terms.push("<%=t.name%>");
+                linkto.push("<%=t.id%>");
+                runtime.push("<%=t.runtime%>");
                 counter = counter + 1;
               }
             <% end %>
@@ -185,7 +189,7 @@ var content ="<%=t.name%>";
             var $mTable = $("#t-table");
             $mTable.find('tbody').html("");
             for(var i = 0; i < counter; i++) {
-              var tempRow = "<tr><td class='td-t-name'>"+terms[i];
+              var tempRow = "<tr><td style='height:100%;border-right:none!important;'><div class='td-icon'> </div></td><td class='td-t-name' style='border-left:none!important;'><a class='td-t-link' href=/terminals/"+linkto[i]+">"+terms[i]+"</a>"+"<br>"+runtime[i]+"</td>";
               tempRow+="<td class='td-t-via'>ROUTES HERE</td>";
               tempRow += "</tr>";
 
