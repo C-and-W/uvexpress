@@ -1,45 +1,87 @@
-<p>
-  <strong>Terminal:</strong>
-  <%= @terminal.name %>
-</p>
+<div id="body-home">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4" style="background-color:#5388AD; height: 100vh;">
+                <div><center><%= image_tag '/assets/main-logo', :style=>"width: 80%; padding-top: 2vh;" %></center></div>
+                
+                <div class="t-td1" style=" margin-left:-4%;margin-top: 4vh; font-family: 'Open Sans', sans-serif; font-size: 16px; font-weight: bold; background-color:white; height:70%; width:108%; padding: 20px;">
 
-<p>
-  <strong>Route:</strong>
-  <%= @route.name %>
-</p>
+                <p>
+                  <strong>Terminal:</strong>
+                  <%= @terminal.name %>
+                </p>
+                
+                <div class="row">
+                  <div class="col-sm-2">
+                    <%= image_tag '/assets/route.png', :style=>"width: 80px" %>
+                  </div>
+                  <div class="col-sm-9">
+                    <strong>ROUTE</strong><br><%= @route.name %>
+                  </div>
+                </div>
 
-<p>
-  <strong>Lat1:</strong>
-  <%= @route.lat1 %>
-</p>
+                <div class="row">
+                  <div class="col-sm-2">
+                    <%= image_tag '/assets/schedule.png', :style=>"width: 80px" %>
+                  </div>
+                  <div class="col-sm-9">
+                    <strong>SCHEDULE</strong> <%= @route.schedule %><br>
+                    <strong>first trip:</strong><%= @route.trip1 %><br>              
+                    <strong>last trip:</strong><%= @route.trip2 %><br>
+                  </div>
+                </div>
 
-<p>
-  <strong>Lat2:</strong>
-  <%= @route.lat2 %>
-</p>
+                <div class="row">
+                  <div class="col-sm-2">
+                    <%= image_tag '/assets/fare.png', :style=>"width: 80px" %>
+                  </div>
+                  <div class="col-sm-9">
+                    <strong>FARE</strong><br><%= @route.fare %>
+                  </div>
+                </div>
+                
+                  <p>
+                    <strong>Lat1:</strong>
+                    <%= @route.lat1 %>
+                  </p>
 
-<p>
-  <strong>Lon1:</strong>
-  <%= @route.lon1 %>
-</p>
+                  <p>
+                    <strong>Lat2:</strong>
+                    <%= @route.lat2 %>
+                  </p>
 
-<p>
-  <strong>Lon2:</strong>
-  <%= @route.lon2 %>
-</p>
+                  <p>
+                    <strong>Lon1:</strong>
+                    <%= @route.lon1 %>
+                  </p>
 
-<p>
-  <strong>Schedule:</strong>
-  <%= @route.schedule %>
-</p>
+                  <p>
+                    <strong>Lon2:</strong>
+                    <%= @route.lon2 %>
+                  </p>
 
-<p>
-  <strong>First Trip:</strong>
-  <%= @route.trip1 %>
-</p>
+                  <% if @route.dropoff_locations.present? %>
+                    <p>
+                      <strong>DROP OFF Points:</strong>
+                      <ul>
+                      <% @route.dropoff_locations.each do |d| %>
+                        <li><%= d.location %></li>
+                      <% end %>
+                      </ul>
+                    </p>
+                  <% end %>                  
 
-<p>
-  <strong>Last Trip:</strong>
-  <%= @route.trip2 %>
-</p>
+                        
+                  <input type="image" src="/assets/hamburger-menu-2.png" alt="Menus" id="i-menu2" class="i-menu my_popup_open">
+                        </div>
+                
+                <div id="my_popup">
+                    <%= render 'destinations/about' %>
+                </div>
+            </div>
 
+            <div id="map"class="col-md-8" style="min-height: 100vh; background-color: #E4E2E1;">
+            </div>
+        </div>
+    </div>
+</div>
