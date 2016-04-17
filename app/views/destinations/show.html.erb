@@ -62,6 +62,13 @@ $(document).ready(function() {
 
 });
 
+function convertEntities(html) {
+    var el = document.createElement("div");
+    el.innerHTML = html;
+    return el.firstChild.data;
+}
+
+
 function enter(event) {
     if (event.which == 13 || event.keyCode == 13) {
         event.preventDefault();
@@ -155,7 +162,7 @@ if (navigator.geolocation) { //Checks if browser supports geolocation
               
               console.log(distance);
               if (distance<=setdis){
-                terms.push("<%=t.name%>");
+                terms.push(["<%=t.id%>","<%=t.name%>"]);
                 counter = counter + 1;
               }
             <% end %>
@@ -166,11 +173,12 @@ if (navigator.geolocation) { //Checks if browser supports geolocation
             var $mTable = $("#t-table");
             $mTable.find('tbody').html("");
             for(var i = 0; i < counter; i++) {
-              var tempRow = "<tr><td class='td-t-name'>"+terms[i];
-              tempRow+="<td class='td-t-via'>ROUTES HERE</td>";
-              tempRow += "</tr>";
-
+              var tempRow = "<tr><td class='td-t-name'>"+terms[i][1]+"</td>";
+               tempRow+= "&#60;&#37; Terminal.find("+terms[i][0]+").first.routes.each do |r| &#37;&#62;<td class='td-t-via'>&#60;&#37; r.name &#37;&#62;</td>&#60;&#37; r.name &#37;&#62;</tr>";
+              // tempRow += "</tr>";
+              //var meh = convertEntities(tempRow);
               $mTable.find('tbody').append(tempRow);
+              //$mTable.find('tbody').append(convertEntities(tempRow));
             }
 
    });

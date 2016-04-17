@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @dropoff_location.location %>
+</p>
+
+<p>
+  <strong>Route:</strong>
+  <%= @dropoff_location.route_id %>
+</p>
+
+<%= link_to 'Edit', edit_dropoff_location_path(@dropoff_location) %> |
+<%= link_to 'Back', dropoff_locations_path %>

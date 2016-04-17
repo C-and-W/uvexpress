@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160409060154) do
+ActiveRecord::Schema.define(version: 20160414173932) do
 
   create_table "destinations", force: :cascade do |t|
     t.float    "latitude"
@@ -24,6 +24,13 @@ ActiveRecord::Schema.define(version: 20160409060154) do
     t.datetime "updated_at",              null: false
   end
 
+  create_table "dropoff_locations", force: :cascade do |t|
+    t.text     "location"
+    t.integer  "route_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "origins", force: :cascade do |t|
     t.float    "latitude"
     t.float    "longitude"
@@ -34,12 +41,24 @@ ActiveRecord::Schema.define(version: 20160409060154) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "routes", force: :cascade do |t|
+    t.string   "name"
+    t.float    "lat1"
+    t.float    "lat2"
+    t.float    "lon1"
+    t.float    "lon2"
+    t.text     "schedule"
+    t.string   "fare"
+    t.integer  "terminal_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "terminals", force: :cascade do |t|
     t.float    "latitude"
     t.float    "longitude"
     t.string   "address"
     t.string   "name"
-    t.string   "route"
     t.decimal  "fare"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

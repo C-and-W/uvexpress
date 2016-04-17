@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @route.name %>
+</p>
+
+<p>
+  <strong>Lat1:</strong>
+  <%= @route.lat1 %>
+</p>
+
+<p>
+  <strong>Lat2:</strong>
+  <%= @route.lat2 %>
+</p>
+
+<p>
+  <strong>Lon1:</strong>
+  <%= @route.lon1 %>
+</p>
+
+<p>
+  <strong>Lon2:</strong>
+  <%= @route.lon2 %>
+</p>
+
+<p>
+  <strong>Schedule:</strong>
+  <%= @route.schedule %>
+</p>
+
+<p>
+  <strong>Fare:</strong>
+  <%= @route.fare %>
+</p>
+
+<p>
+  <strong>Terminal:</strong>
+  <%= @route.terminal_id %>
+</p>
+
+<%= link_to 'Edit', edit_route_path(@route) %> |
+<%= link_to 'Back', routes_path %>

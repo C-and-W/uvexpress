@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  lat1: 1.5
+  lat2: 1.5
+  lon1: 1.5
+  lon2: 1.5
+  schedule: MyText
+  fare: MyString
+  terminal_id: 1
+
+two:
+  name: MyString
+  lat1: 1.5
+  lat2: 1.5
+  lon1: 1.5
+  lon2: 1.5
+  schedule: MyText
+  fare: MyString
+  terminal_id: 1

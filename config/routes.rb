@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :terminals
+  resources :terminals do
+    resources :routes
+  end
   resources :origins
   resources :destinations
   root 'destinations#new'
