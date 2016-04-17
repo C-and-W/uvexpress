@@ -158,18 +158,18 @@ Route.create(name: 'Ayala Makati', schedule: 'Not Available', trip1: '', trip2:'
 Route.create(name: 'Eastwood, Libis', schedule: 'Not Available', trip1: '', trip2:'', fare: 'Not Available', terminal_id: 16)
 Route.create(name: 'Megamall, Ortigas', schedule: 'Not Available', trip1: '', trip2:'', fare: 'Not Available', terminal_id: 16)
 
-Terminal.create(name: 'Savemore Marikina Terminal', latitude:14.6314031, longitude: 121.0822803, runtime: 'Not Available')
+Terminal.create(name: 'Savemore Marikina Terminal', latitude:14.6314031, longitude: 121.0822803, runtime: 'Not Available',count:0)
 Route.create(name: 'Ayala Makati', schedule: 'Not Available', trip1: '', trip2:'', fare: 'Not Available', terminal_id: 17)
 Route.create(name: 'Eastwood, Libis', schedule: 'Not Available', trip1: '', trip2:'', fare: 'Not Available', terminal_id: 17)
 Route.create(name: 'Megamall, Ortigas', schedule: 'Not Available', trip1: '', trip2:'', fare: 'Not Available', terminal_id: 17)
 
-Terminal.create(name: 'Meralco Bayan-Bayanan Ave.', latitude:14.650572, longitude: 121.111565, runtime: '4:00 AM - 3:00 PM')
+Terminal.create(name: 'Meralco Bayan-Bayanan Ave.', latitude:14.650572, longitude: 121.111565, runtime: '4:00 AM - 3:00 PM',count:0)
 Route.create(name: 'Ayala Makati', schedule: 'Not Available', trip1: '4:00 AM', trip2:'3:00 PM', fare: 'Not Available', terminal_id: 18)
 Route.create(name: 'Eastwood, Libis', schedule: 'Not Available', trip1: '4:00 AM', trip2:'3:00 PM', fare: 'Not Available', terminal_id: 18)
 Route.create(name: 'Megamall, Ortigas', schedule: 'Not Available', trip1:'4:00 AM', trip2:'3:00 PM', fare: 'Not Available', terminal_id: 18)
 Route.create(name: 'The Fort/BGC', schedule: 'Not Available', trip1:'4:00 AM', trip2:'3:00 PM', fare: 'Not Available', terminal_id: 18)
 
-Terminal.create(name: 'SM Aura Terminal', latitude:14.54630992, longitude: 121.05462, runtime: 'Not Available')
+Terminal.create(name: 'SM Aura Terminal', latitude:14.54630992, longitude: 121.05462, runtime: 'Not Available',count:0)
 Route.create(name: 'Pateros', schedule: 'Not Available', trip1: '', trip2:'', fare: 'Not Available', terminal_id: 19)
 Route.create(name: 'Ayala', schedule: 'Not Available', trip1: '', trip2:'', fare: 'Not Available', terminal_id: 19)
 Route.create(name: 'Taguig Tipas', schedule: 'Not Available', trip1: '', trip2:'', fare: 'Not Available', terminal_id: 19)
