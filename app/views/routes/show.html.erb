@@ -1,4 +1,7 @@
-<div id="body-home">
+         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxlbNHz4zdPWvnj6vQZXdkDEyh6Vgm_nk&callback=initMap"
+  type="text/javascript"></script>
+        
+<div id="body-home" style="">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-4" style="background-color:#5388AD; height: 100vh;">
@@ -47,7 +50,7 @@
                     
                   </div>
                   <div style="padding-top:0.9vh;" class="col-xs-8" >
-                    <span class="ttitle">SCHEDULE</span><br>
+                    <span class="ttitle">SCHEDULE</span>
                     <span class="sttitle"><%=@route.schedule%></span><br>
                     <span class="sttitle2">first trip:<%= @route.trip1 %></span><br><span class="sttitle2">last trip:<%= @route.trip2 %></span>
                   </div>
@@ -55,12 +58,31 @@
 
                   <div class="row td-divlink" style="height:12vh; background-color:white;">
                   <div class="col-xs-1"></div>
-                  <div style="width:13vh; height:100%;background-image:url(/assets/fare.png);background-size:cover;background-position:cover; margin-left:16px;" class="col-xs-3">
+                  <div style="width:13vh; height:100%;background-image:url(/assets/fare.png);background-size:cover;background-position:cover; margin-left:19px;" class="col-xs-3">
                     
                   </div>
                   <div style="padding-top:0.9vh;" class="col-xs-8" >
                     <span class="ttitle">FARE</span><br>
                     <span class="sttitle"><%=@route.fare%></span>
+                  </div>
+                  </div>
+                  <div class="row td-divlink" style="height:12vh; background-color:white;">
+                  <div class="col-xs-1"></div>
+
+                  <div style="padding-top:0.9vh;" class="col-xs-10" >
+                    <span class="ttitle">DROP OFF POINTS</span><br>
+                    <span class="sttitle">
+                      <% if @route.dropoff_locations.present? %>
+                    <p>
+                      <ul>
+                      <% @route.dropoff_locations.each do |d| %>
+                        <li><%= d.location %></li>
+                      <% end %>
+                      </ul>
+                    </p>
+                  <% end %>
+
+                    </span>
                   </div>
                   </div>
                 </div>
@@ -76,69 +98,9 @@
                     <%= render 'about' %>
                 </div>
             <div id="map"class="col-md-8" style="min-height: 100vh; background-color: #E4E2E1;padding-left:0!important;padding-right:0!important;">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m44!1m12!1m3!1d61802.069085481315!2d121.00385349110101!3d14.505956507350762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m29!3e0!4m5!1s0x3397c91baffddebf%3A0x69800d9f23370c5e!2sPilar+UV+Express+Station%2C+East+St%2C+Makati%2C+Metro+Manila!3m2!1d14.549178699999999!2d121.02560249999999!4m5!1s0x3397ce42734946c1%3A0x2e3b609295ed4bd4!2sN+Lopez+Ave%2C+Para%C3%B1aque%2C+Metro+Manila!3m2!1d14.4678519!2d121.0111117!4m5!1s0x3397ce3b50e254d7%3A0x544ef11811c1bff2!2sAguirre+Avenue%2C+Para%C3%B1aque%2C+Metro+Manila!3m2!1d14.4514835!2d121.0181511!4m5!1s0x3397ce32597c9df1%3A0xbaa40fd03cfc01d6!2sPresident&#39;s+Ave%2C+Para%C3%B1aque%2C+Metro+Manila!3m2!1d14.4502931!2d121.02995179999999!4m3!3m2!1d14.450262899999998!2d121.0301123!5e0!3m2!1sen!2sph!4v1460897611760" frameborder="0" style="border:0;width:100%;height:100vh;" allowfullscreen></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m44!1m12!1m3!1d61802.069085481315!2d121.00385349110101!3d14.505956507350762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m29!3e0!4m5!1s0x3397c91baffddebf%3A0x69800d9f23370c5e!2sPilar+UV+Express+Station%2C+East+St%2C+Makati%2C+Metro+Manila!3m2!1d14.549178699999999!2d121.02560249999999!4m5!1s0x3397ce42734946c1%3A0x2e3b609295ed4bd4!2sN+Lopez+Ave%2C+Para%C3%B1aque%2C+Metro+Manila!3m2!1d14.4678519!2d121.0111117!4m5!1s0x3397ce3b50e254d7%3A0x544ef11811c1bff2!2sAguirre+Avenue%2C+Para%C3%B1aque%2C+Metro+Manila!3m2!1d14.4514835!2d121.0181511!4m5!1s0x3397ce32597c9df1%3A0xbaa40fd03cfc01d6!2sPresident&#39;s+Ave%2C+Para%C3%B1aque%2C+Metro+Manila!3m2!1d14.4502931!2d121.02995179999999!4m3!3m2!1d14.450262899999998!2d121.0301123!5e0!3m2!1sen!2sph!4v1460897611760" frameborder="0" style="border:0;width:100%;height:99.2vh;" allowfullscreen></iframe>
 
             </div>
             </div>
 
         </div>
-
-
-
-
-
-
-<p>
-  <strong>Terminal:</strong>
-  <%= @terminal.name %>
-</p>
-
-<p>
-  <strong>Route:</strong>
-  <%= @route.name %>
-</p>
-
-<p>
-  <strong>Lat1:</strong>
-  <%= @route.lat1 %>
-</p>
-
-<p>
-  <strong>Lat2:</strong>
-  <%= @route.lat2 %>
-</p>
-
-<p>
-  <strong>Lon1:</strong>
-  <%= @route.lon1 %>
-</p>
-
-<p>
-  <strong>Lon2:</strong>
-  <%= @route.lon2 %>
-</p>
-
-<p>
-  <strong>Schedule:</strong>
-  <%= @route.schedule %>
-</p>
-
-<p>
-  <strong>First Trip:</strong>
-  <%= @route.trip1 %>
-</p>
-
-<p>
-  <strong>Last Trip:</strong>
-  <%= @route.trip2 %>
-</p>
-                  <% if @route.dropoff_locations.present? %>
-                    <p>
-                      <strong>DROP OFF Points:</strong>
-                      <ul>
-                      <% @route.dropoff_locations.each do |d| %>
-                        <li><%= d.location %></li>
-                      <% end %>
-                      </ul>
-                    </p>
-                  <% end %>                  
