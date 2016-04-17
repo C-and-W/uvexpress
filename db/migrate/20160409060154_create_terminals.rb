@@ -3,10 +3,9 @@ class CreateTerminals < ActiveRecord::Migration
     create_table :terminals do |t|
       t.float :latitude
       t.float :longitude
-      t.string :address
       t.string :name
-      t.decimal :fare
-
+      t.string :runtime
+      
       t.timestamps null: false
     end
   end

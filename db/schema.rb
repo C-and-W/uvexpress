@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20160417042915) do
+ActiveRecord::Schema.define(version: 20160414173932) do
 
   create_table "destinations", force: :cascade do |t|
     t.float    "latitude"
@@ -49,6 +48,8 @@ ActiveRecord::Schema.define(version: 20160417042915) do
     t.float    "lon1"
     t.float    "lon2"
     t.text     "schedule"
+    t.string   "trip1"
+    t.string   "trip2"
     t.string   "fare"
     t.integer  "terminal_id"
     t.datetime "created_at",  null: false
@@ -58,12 +59,10 @@ ActiveRecord::Schema.define(version: 20160417042915) do
   create_table "terminals", force: :cascade do |t|
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "address"
     t.string   "name"
-    t.decimal  "fare"
+    t.string   "runtime"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "runtime"
   end
 
 end

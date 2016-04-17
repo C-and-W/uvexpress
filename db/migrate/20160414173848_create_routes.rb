@@ -7,6 +7,8 @@ class CreateRoutes < ActiveRecord::Migration
       t.float :lon1
       t.float :lon2
       t.text :schedule
+      t.string :trip1
+      t.string :trip2
       t.string :fare
       t.integer :terminal_id
 
