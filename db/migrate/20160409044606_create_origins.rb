@@ -6,6 +6,7 @@ class CreateOrigins < ActiveRecord::Migration
       t.string :address
       t.text :description
       t.string :title
+      t.integer :destination_id
 
       t.timestamps null: false
     end

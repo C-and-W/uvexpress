@@ -21,17 +21,16 @@
 					<div class="field">
 				    <%= f.text_field :address, :id=>"i-destination", :class=>"i-search", :type=>"text", :name=>"destination[address]", :placeholder=>"SEARCH DESTINATION" %>
 				  </div>
-          <%= f.hidden_field :origin_latitude, :id=>'origin-latitude' %>
-          <%= f.hidden_field :origin_longitude, :id=>'origin-longitude' %>
+
+          <input name="origin-latitude", id="origin-latitude" hidden>
+          <input name="origin-longitude", id="origin-longitude" hidden>
+
 				    <div class="actions" style="visibility:hidden;">
 					    <%= f.submit %>
 					</div>
 					<%end%>
 
-          <%= form_for(@origin) do |f| %>
-            <%= f.hidden_field :origin_latitude, :id=>'origin-latitude' %>
-            <%= f.hidden_field :origin_longitude, :id=>'origin-longitude' %>
-          <% end %>
+
                 </center>
                 
                 <input type="image" src="/assets/hamburger-menu-1.png" alt="Menus" id="i-menu1" class="i-menu my_popup_open">

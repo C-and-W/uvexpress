@@ -10,7 +10,6 @@ class DestinationsController < ApplicationController
   # GET /destinations/1
   # GET /destinations/1.json
   def show
-    @new_origin = Origin.new
     @terminals = Terminal.all
     @hash = Gmaps4rails.build_markers(@terminals) do |terminal, marker|
       marker.lat terminal.latitude
@@ -48,6 +47,8 @@ class DestinationsController < ApplicationController
 
     respond_to do |format|
       if @destination.save
+        origin = Origin.new(latitude: params['origin-latitude'], longitude: params['origin-longitude'], destination_id: @destination.id)
+        origin.save
         format.html { redirect_to @destination, notice: 'Destination was successfully created.' }
         format.json { render :show, status: :created, location: @destination }
       else
@@ -62,6 +63,7 @@ class DestinationsController < ApplicationController
   def update
     respond_to do |format|
       if @destination.update(destination_params)
+        @destination.origin.update(address: params['origin-address'])
         format.html { redirect_to @destination, notice: 'Destination was successfully updated.' }
         format.json { render :show, status: :ok, location: @destination }
       else
@@ -89,6 +91,6 @@ class DestinationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def destination_params
-      params.require(:destination).permit(:latitude, :longitude, :address, :description, :title)
+      params.require(:destination).permit(:latitude, :longitude, :address, :description, :title, :origin)
     end
 end

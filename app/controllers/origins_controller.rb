@@ -42,7 +42,7 @@ class OriginsController < ApplicationController
   def update
     respond_to do |format|
       if @origin.update(origin_params)
-        format.html { redirect_to @origin, notice: 'Origin was successfully updated.' }
+        format.html { redirect_to destination_path(@origin.destination_id), notice: 'Origin was successfully updated.' }
         format.json { render :show, status: :ok, location: @origin }
       else
         format.html { render :edit }
