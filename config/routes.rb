@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     resources :routes
   end
   resources :origins
-  resources :destinations
+  resources :destinations do
+    resources :terminals
+  end
   root 'destinations#new'
   get '/two', to: 'pages#home_two', as: :home_two
   get '/about', to: 'pages#about'

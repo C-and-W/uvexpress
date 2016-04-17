@@ -1,3 +1,75 @@
+<div id="body-home">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4" style="background-color:#5388AD; height: 100vh;">
+                <div><center><%= image_tag '/assets/main-logo', :style=>"width: 80%; padding-top: 2vh;" %>
+                </center></div>
+                <div class="">
+                    <div class="row" style="margin-top:3vh;">
+                        <div class="col-xs-2">
+                        <%= image_tag 'location to destination.png', :style => "height: 15vh; margin-left: -20px;"%>
+                    </div>
+                    <div class="col-xs-8">
+                          <center><input id="i-origin" class="i-search" type="text" name="origin" placeholder="SEARCH ORIGIN" value=<%= params['origin'] %>></center>
+                      <center><input id="i-destination2" class="i-search" type="text" name="destination" value=<%= params['destination'] %>></center>
+
+                    </div>
+                    <div class="col-xs-2" style="padding-top:10px;">
+                        <input type="image" src="/assets/reverse.png" alt="Reverse" id="i-reverse1" class="i-reverse" onclick="for_reverse(event);">
+                    </div>
+
+                    </div>
+                </div>
+                <div class="t-td1" style=" margin-left:-4%; font-family: 'Open Sans', sans-serif; font-size: 16px; font-weight: bold; background-color:#E4E2E1; height:10%; width:108%; padding-top:14px;margin-top:4vh;">
+                  <center>
+                  <span class="st-title"><%= @terminal.name %></span><br>
+                  <span class="st-subtitle">address here</span>
+
+                  </center>
+                </div>
+                <div class="t-td1" style=" margin-left:-4%; font-family: 'Open Sans', sans-serif; color: #5388AD; font-size: 16px; font-weight: bold; background-color:white; height:70%; width:108%; padding-top:20px;">
+                <center>There are <span id="counter">0</span> terminals near your location!</center>
+                
+                    <div id="t-table-wrapper" style="padding-top:15px;margin-left:20px;margin-right:20px;"><center>
+                        <table id="t-table" style="width:100%;">
+                        
+                            <tr>
+                                <!-- IROW MO NA LANG TO KESA TABLE-->
+                                <td class="td-t-name"></td>
+                                <td class="td-t-via"></td>
+                            </tr>
+
+                        </table>
+                        </center>
+                        </div>
+                        <input type="image" src="/assets/hamburger-menu-2.png" alt="Menus" id="i-menu2" class="i-menu my_popup_open">
+                        </div>
+                
+                <div id="my_popup">
+                    <%= render 'about' %>
+                </div>
+            </div>
+
+            <div id="map"class="col-md-8" style="min-height: 100vh; background-color: #E4E2E1;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+function reverse() {
+    var destination = document.getElementById("i-destination2").value;
+    var origin = document.getElementById("i-origin").value;
+    document.getElementById("i-origin").value = destination;
+    document.getElementById("i-destination2").value = origin;
+}
+</script>
+
+
+
+
+
 <p id="notice"><%= notice %></p>
 
 <p>

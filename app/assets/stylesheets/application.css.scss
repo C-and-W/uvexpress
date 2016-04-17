@@ -217,11 +217,13 @@
 }
 
 #t-table, #t-table td{
-  border: 1px solid #E4E2E1;
+  border: none;
   color: #5388AD; 
   font-size: 15px;
 }
-
+#t-table td{
+border:1px solid #E4E2E1!important;
+}
 #t-table .td-t-name{
   vertical-align: top;
 }
@@ -231,11 +233,39 @@
 
 }
 .td-t-name{
-  width:60%!important;
+  width:40%!important;
+  padding-top:10px;
+  padding-bottom:10px;
+  padding-left:-10px;
+  padding-right:10px;
+}
+.td-icon{
+background-image: url(/assets/nearest-terminals);
+background-size: cover;
+background-position: center;
+height:8vh;
+width:80%;
+margin-left: 10%;
+}
+.td-t-link{
+  color:#5388AD;
+}
+.td-div{
+  border:1px solid #E4E2E1!important;
+  height:100%;
+  width:100%;
+}
+.td-t-link:hover{
+  color:#5388AD;
+  background-color: transparent;
+}
+.td-t-link:visited {
+    color:#5388AD;
 }
 .td-t-via{
   margin-left: -10px;
-  width:60%!important;
+  width:40%!important;
+  padding:10px;
 }
 .t-via{
   margin-left: 20px;
@@ -243,5 +273,23 @@
 }
 
 #t-table-wrapper{
-  
+  height:35.5vh;
+  overflow-y:auto;
+}
+.st-title{
+font-family: 'Open Sans', sans-serif;
+font-weight:700;
+color:#9b465c; 
+}
+.st-title{
+font-family: 'Open Sans', sans-serif;
+font-weight:900;
+font-size: 20px;
+color:#9b465c; 
+}
+.st-subtitle{
+font-family: 'Open Sans', sans-serif;
+font-weight:500;
+font-size: 12px;
+color:#9b465c; 
 }
