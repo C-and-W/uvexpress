@@ -64,11 +64,12 @@ class RoutesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_route
+      @terminal = Terminal.find(params[:terminal_id])
       @route = Route.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def route_params
-      params.require(:route).permit(:name, :lat1, :lat2, :lon1, :lon2, :schedule, :fare, :terminal_id)
+      params.require(:route).permit(:name, :lat1, :lat2, :lon1, :lon2, :schedule, :trip1, :trip2, :fare, :terminal_id)
     end
 end
