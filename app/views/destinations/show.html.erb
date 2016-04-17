@@ -200,7 +200,7 @@ var content ="<%=t.name%>";
             $mTable.find('tbody').html("");
             for(var i = 0; i < counter; i++) {
               var tempRow = "<tr><td style='height:100%;border-right:none!important;'><div class='td-icon'> </div></td><td class='td-t-name' style='border-left:none!important;'><a class='td-t-link' href=/terminals/"+terms[i][0]+">"+terms[i][1]+"</a>"+"<br>"+terms[i][2]+"</td>";
-              tempRow+="<td class='td-t-via'>"
+              tempRow+="<td class='td-t-via'><ul>"
               for(var a = 0; a < routes.length; a++) {
                 if (routes[a][0].terminal == terms[i][1]){
                   //console.log(routes[a][0].troutes);
@@ -212,7 +212,7 @@ var content ="<%=t.name%>";
                   //var hit = routes[a];
                 }
               }
-              tempRow+="</td>";
+              tempRow+="<ul></td>";
               tempRow += "</tr>";
               $mTable.find('tbody').append(tempRow);
 
