@@ -186,13 +186,13 @@ var content ="<%=t.name%>";
             var $mTable = $("#t-table");
             $mTable.find('tbody').html("");
             for(var i = 0; i < counter; i++) {
-              var tempRow = "<tr><td style='height:100%;border-right:none!important;'><div class='td-icon'> </div></td><td class='td-t-name' style='border-left:none!important;'><a class='td-t-link' href=/terminals/"+terms[i][0]+">"+terms[i][1]+"</a>"+"<br>"+terms[i][2]+"</td>";
+              var tempRow = "<tr><td style='height:100%;border-right:none!important;'><div class='td-icon'> </div></td><td class='td-t-name' style='border-left:none!important;'><a class='td-t-link' href=/destinations/<%= @destination.id %>/terminals/"+terms[i][0]+">"+terms[i][1]+"</a>"+"<br>"+terms[i][2]+"</td>";
               tempRow+="<td class='td-t-via'><ul>"
               for(var a = 0; a < routes.length; a++) {
                 if (routes[a][0].terminal == terms[i][1]){
                   //console.log(routes[a][0].troutes);
                   for(var b = 0; b < routes[a][1].troutes.length; b++){
-                    tempRow+="<li class='td-llink'><a class='td-t-link' href=/terminals/"+terms[i][0]+"/routes/"+routes[a][1].troutes[b][0].id+">"+routes[a][1].troutes[b][1].name+"</a></li>"+"<br class='brc'>";
+                    tempRow+="<li class='td-llink'><a class='td-t-link' href=/destinations/<%= @destination.id %>/terminals/"+terms[i][0]+"/routes/"+routes[a][1].troutes[b][0].id+">"+routes[a][1].troutes[b][1].name+"</a></li>"+"<br class='brc'>";
                   }
                   
                   //var hit = routes[a];
@@ -247,10 +247,6 @@ if (navigator.geolocation) { //Checks if browser supports geolocation
 }
 
 /* original */
-
-var destination2 = document.getElementById("i-destination2").value;
-var origin2 = document.getElementById("i-origin").value;
-
 $("#i-reverse1").click(function(e){
   reverse();
   document.getElementById("destination-form").submit();

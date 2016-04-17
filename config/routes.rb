@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :terminals do
-    resources :routes
-  end
   resources :origins
   resources :destinations do
-    resources :terminals
+    resources :terminals do 
+      resources :routes
+    end
   end
   root 'destinations#new'
   get '/two', to: 'pages#home_two', as: :home_two

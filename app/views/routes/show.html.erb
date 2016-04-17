@@ -13,9 +13,11 @@
                         <%= image_tag 'location to destination.png', :style => "height: 15vh; margin-left: -20px;"%>
                     </div>
                     <div class="col-xs-8">
-                          <center><input id="i-origin" class="i-search" type="text" name="origin" placeholder="Search Origin" value=<%= params['origin'] %>></center>
-                      <center><input id="i-destination2" class="i-search" type="text" name="destination" value=<%= params['destination'] %>></center>
-
+                      <%= form_for @destination, url: {controller: "destinations", action: "update"}, html: {id: "destination-form"} do |f| %>
+                        <center><%= f.text_field :origin_address,  name: "origin-address", id: "i-origin", class: "i-search", value: "#{@destination.origin.address}"%>
+                        <center><%= f.text_field :address, id: "i-destination2", class: "i-search", value: "#{@destination.address}"%></center>
+                        <%= submit_tag "", :style => "display: none;" %>
+                      <% end %>
                     </div>
                     <div class="col-xs-2" style="padding-top:10px;">
                         <input type="image" src="/assets/reverse.png" alt="Reverse" id="i-reverse1" class="i-reverse" onclick="for_reverse(event);">
@@ -201,3 +203,22 @@
             </div>
 
         </div>
+
+
+<script>
+$(document).ready(function() {
+
+  function reverse() {
+      var destination = document.getElementById("i-destination2").value;
+      var origin = document.getElementById("i-origin").value;
+      document.getElementById("i-origin").value = destination;
+      document.getElementById("i-destination2").value = origin;
+  }
+
+  $("#i-reverse1").click(function(e){
+  reverse();
+  document.getElementById("destination-form").submit();
+  });
+  
+});
+</script>
