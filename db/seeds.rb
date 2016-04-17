@@ -6,7 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Terminal.create(name: 'SM Southmall', latitude:14.433158, longitude: 121.01259124, runtime: '5:30AM to 10:00 AM')
+Terminal.create(name: 'SM Southmall', latitude:14.433158, longitude: 121.01259124, runtime: '5:30AM to 10:00 AM',address:'1168 Alabang - Zapote Rd
+Almanza Uno, Las Pinas')
 Route.create(name: 'Ayala Makati via Skyway', schedule: 'Monday-Saturday', trip1: '5:30 AM', trip2: '10:00 AM', fare: 'P70', terminal_id: 1)
 DropoffLocation.create(location: 'Makati Medical Center: access to Makati Post Office, RCBC Tower, Mapua, PAG-IBIG, Makati Sports Club', route_id: 1)
 DropoffLocation.create(location: 'Adelantado cor. Rufino st.: access to Pasay Road, San Lorenzo Village', route_id: 1)
@@ -77,7 +78,7 @@ Terminal.create(name: 'Marcos Alvarez', latitude:14.43597379, longitude: 121.008
 Route.create(name: 'Lawton via Coastal rd.', schedule: 'No Available Time', fare: 'P50', terminal_id: 7)
 
 
-Terminal.create(name: 'Park Square Terminal 1st Floor', latitude:14.54911384, longitude: 121.02564812, runtime: '12:30PM to 12:00MN')
+Terminal.create(name: 'Park Square Terminal 1st Floor', latitude:14.54911384, longitude: 121.02564812, runtime: '12:30PM to 12:00MN',address:'Park Square, East St, Makati, Metro Manila')
 Route.create(name: 'BF Homes Paranaque via Skyway', schedule: 'Monday-Saturday', trip1: '12:30 PM', trip2: '11:30 PM', fare: 'P70', terminal_id: 8)
 DropoffLocation.create(location: 'Sucat road: access to Santana Grove, Shopwise, Loyola Memorial Park, Medical Center Paranaque, SM BF Paranaque, Jaka Plaza, UPS 5, Greenheights', route_id: 8)
 DropoffLocation.create(location: 'El Grande Ave.: access to Lopez Village, BF Northwest, Ann Arbor Montessori School, Tropical Ave.s', route_id: 8)

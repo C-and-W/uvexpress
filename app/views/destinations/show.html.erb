@@ -183,7 +183,6 @@ var content ="<%=t.name%>";
               if (distance<=setdis){
                 terms.push(["<%=t.id%>","<%=t.name%>","<%= t.runtime %>"]);
                 routes.push([{terminal: "<%= t.name %>"},{troutes: []}]);
-                //routes["<%= t.name %>"] = []
                 <% t.routes.each do |r| %>
                   routes[counter][1].troutes.push([{id:"<%= r.id %>"},{name:"<%= r.name %>"}]);
                 <% end %>
@@ -194,18 +193,6 @@ var content ="<%=t.name%>";
 
 
             document.getElementById('counter').innerHTML = counter;
-            // for(var key in objects) {
-            //     var value = objects[key];
-            // }
-            // console.log(routes[0]['SM Southmall']);
-            // for(var a = 0; a < routes.length; i++){
-            //   console.log("meh");
-            // }
-            
-            //console.log(routes[7][1].troutes);
-            //console.log(routes[0][1].troutes[0][1].name);
-           // console.log(routes);
-            
 
             //HERE 
 
