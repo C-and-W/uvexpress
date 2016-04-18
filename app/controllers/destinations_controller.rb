@@ -39,7 +39,7 @@ class DestinationsController < ApplicationController
       marker.lng terminal.longitude
        marker.infowindow terminal.name
        marker.picture({
-       "url" => "https://s3.amazonaws.com/uvexpress/t1-b.png",
+       "url" => "https://s3.amazonaws.com/uvexpress/t3-1.png",
        "width" =>  38,        
        "height" => 61
        })
