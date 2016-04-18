@@ -186,7 +186,7 @@ var content ="<%=t.name%>";
             var $mTable = $("#t-table");
             $mTable.find('tbody').html("");
             for(var i = 0; i < counter; i++) {
-              var tempRow = "<tr><td style='height:100%;border-right:none!important;'><div class='td-icon'> </div></td><td class='td-t-name' style='border-left:none!important;'><a class='td-t-link' href=/destinations/<%= @destination.id %>/terminals/"+terms[i][0]+">"+terms[i][1]+"</a>"+"<br><span class='td-t-link1'>"+terms[i][2]+"</span></td>";
+              var tempRow = "<tr><td style='height:100%;border-right:none!important;' valign='top'><div class='td-icon'> </div></td><td class='td-t-name' style='border-left:none!important;'><a class='td-t-link' href=/destinations/<%= @destination.id %>/terminals/"+terms[i][0]+">"+terms[i][1]+"</a>"+"<br><span class='td-t-link1'>"+terms[i][2]+"</span></td>";
               tempRow+="<td class='td-t-via'><ul>"
               for(var a = 0; a < routes.length; a++) {
                 if (routes[a][0].terminal == terms[i][1]){

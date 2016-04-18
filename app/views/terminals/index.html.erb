@@ -4,12 +4,13 @@
             <div class="col-md-4" style="background-color:#5388AD; height: 100vh;">
                 <div><center><%= image_tag '/assets/main-logo', :style=>"width: 80%; padding-top: 2vh;" %></center></div>
                 <div class="t-td1" style=" margin-left:-4%;margin-top: 4vh; font-family: 'Open Sans', sans-serif; color: #5388AD; font-size: 16px; font-weight: bold; background-color:white; height:90%; width:108%; padding-top:20px;">
+                <center>ALL TERMINALS</center><br>
                 
                     <div id="t-table-wrapper" style="margin-left:20px;margin-right:20px;margin-top:5px;height:63vh;"><center>
                         <table id="t-table" style="width:100%;">
                             <% @terminals.each do |t| %>
                               <tr>
-                                <td style='height:100%;border-right:none!important;'><div class='td-icon1'></div></td>
+                                <td style='height:100%;border-right:none!important' valign="top"><div class='td-icon1'></div></td>
                                 <td class='td-t-name' style='border-left:none!important;'>
                                   <a class='td-t-link' href="/destinations/<%= @destination.id %>/terminals/<%= t.id %>"><%= t.name %></a><br><%= t.runtime %>
                                 </td>
@@ -44,26 +45,17 @@
 
 <script type="text/javascript">
 
-$(document).ready(function() {
-  if (navigator.geolocation) { //Checks if browser supports geolocation
-   navigator.geolocation.getCurrentPosition(function (position) {                                                              //This gets the
-     var latitude = position.coords.latitude;                    //users current
-     var longitude = position.coords.longitude;                 //location
-     var coords = new google.maps.LatLng(latitude, longitude); //Creates variable for map coordinates
-     document.getElementById('origin-latitude').value = latitude;
-     document.getElementById('origin-longitude').value = longitude;
-     })
-   }
-    handler = Gmaps.build('Google');
-    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-      markers = handler.addMarkers(<%=raw @hash.to_json %>);
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-      handler.getMap().setZoom(13);
-      handler.getMap().setOptions({styles: [{"featureType":"water","stylers":[{"saturation":43},{"lightness":-11},{"hue":"#0088ff"}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"hue":"#ff0000"},{"saturation":-100},{"lightness":99}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"color":"#808080"},{"lightness":54}]},{"featureType":"landscape.man_made","elementType":"geometry.fill","stylers":[{"color":"#ece2d9"}]},{"featureType":"poi.park","elementType":"geometry.fill","stylers":[{"color":"#ccdca1"}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"color":"#767676"}]},{"featureType":"road","elementType":"labels.text.stroke","stylers":[{"color":"#ffffff"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"landscape.natural","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#b8cb93"}]},{"featureType":"poi.park","stylers":[{"visibility":"on"}]},{"featureType":"poi.sports_complex","stylers":[{"visibility":"on"}]},{"featureType":"poi.medical","stylers":[{"visibility":"on"}]},{"featureType":"poi.business","stylers":[{"visibility":"simplified"}]}]});
-    });
 
+$(document).ready(function() {
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers(<%=raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    handler.getMap().setZoom(12);
+    handler.getMap().setOptions({styles: [{"featureType":"water","stylers":[{"saturation":43},{"lightness":-11},{"hue":"#0088ff"}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"hue":"#ff0000"},{"saturation":-100},{"lightness":99}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"color":"#808080"},{"lightness":54}]},{"featureType":"landscape.man_made","elementType":"geometry.fill","stylers":[{"color":"#ece2d9"}]},{"featureType":"poi.park","elementType":"geometry.fill","stylers":[{"color":"#ccdca1"}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"color":"#767676"}]},{"featureType":"road","elementType":"labels.text.stroke","stylers":[{"color":"#ffffff"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"landscape.natural","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#b8cb93"}]},{"featureType":"poi.park","stylers":[{"visibility":"on"}]},{"featureType":"poi.sports_complex","stylers":[{"visibility":"on"}]},{"featureType":"poi.medical","stylers":[{"visibility":"on"}]},{"featureType":"poi.business","stylers":[{"visibility":"simplified"}]}]});
   });
+});
 
 
 </script>
