@@ -13,11 +13,11 @@
                         <%= image_tag 'location to destination.png', :style => "height: 15vh; margin-left: -20px;"%>
                     </div>
                     <div class="col-xs-8">
-                      <%= form_for @destination, url: {controller: "destinations", action: "update"}, html: {id: "destination-form"} do |f| %>
-                        <center><%= f.text_field :origin_address,  name: "origin-address", id: "i-origin", class: "i-search", value: "#{@destination.origin.address}"%>
-                        <center><%= f.text_field :address, id: "i-destination2", class: "i-search", value: "#{@destination.address}"%></center>
-                        <%= submit_tag "", :style => "display: none;" %>
-                      <% end %>
+                      <%= form_for @destination, url: destination_path(params[:destination_id]), method: :patch, html: {id: "destination-form"} do |f| %>
+                        <%= f.text_field :origin_address, name: "origin-address", id: "i-origin", class: "i-search", value: "#{@destination.origin.address}"%>
+                        <%= f.text_field :address, id: "i-destination2", class: "i-search", value: "#{@destination.address}"%>
+                        <%= submit_tag "", :style => "display: none;" %> 
+                      <% end %> 
                     </div>
                     <div class="col-xs-2" style="padding-top:10px;">
                         <input type="image" src="/assets/reverse.png" alt="Reverse" id="i-reverse1" class="i-reverse" onclick="for_reverse(event);">
