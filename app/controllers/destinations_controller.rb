@@ -21,7 +21,6 @@ class DestinationsController < ApplicationController
 
   # GET /destinations/new
   def new
-    Destination.delete_all
     @destination = Destination.new
     @terminals = Terminal.all
     @hash = Gmaps4rails.build_markers(@terminals) do |terminal, marker|
