@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Terminal.create(name: 'SM Southmall', latitude:14.433158, longitude: 121.01259124, runtime: '5:30AM to 10:00 AM',address:'1168 Alabang - Zapote Rd
-Almanza Uno, Las Pinas',count:3)
+Almanza Uno, Las Pinas',count:1)
 Route.create(name: 'Ayala Makati via Skyway', schedule: 'Monday-Saturday', trip1: '5:30 AM', trip2: '10:00 AM', fare: 'P70', terminal_id: 1)
 DropoffLocation.create(location: 'Makati Medical Center: access to Makati Post Office, RCBC Tower, Mapua, PAG-IBIG, Makati Sports Club', route_id: 1)
 DropoffLocation.create(location: 'Adelantado cor. Rufino st.: access to Pasay Road, San Lorenzo Village', route_id: 1)
@@ -108,7 +108,7 @@ Route.create(name: 'C-5 Palar', schedule: '4:00 PM onwards', trip1: '4:00 PM', t
 Route.create(name: 'Lower Bicutan via MRT road', schedule: '4:00 PM onwards', trip1: '4:00 PM', trip2: '', fare: 'Not Available', terminal_id: 9)
 Route.create(name: 'FTI-ARCA South', schedule: '4:00 PM onwards', trip1: '4:00 PM', trip2: '', fare: 'Not Available', terminal_id: 9)
 
-Terminal.create(name: 'Makati Cinema Square Terminal', latitude:14.55246158, longitude: 121.01392831, runtime: '5:00PM to 11:00PM',count:0)
+Terminal.create(name: 'Makati Cinema Square Terminal', latitude:14.55246158, longitude: 121.01392831, runtime: '5:00PM to 11:00PM',count:2)
 Route.create(name: 'Las Pinas via Skyway', schedule: '', trip1: '5:00 PM', trip2: '11:00PM', fare: 'P60', terminal_id: 10)
 Route.create(name: 'Sucat via Skyway', schedule: '', trip1: '5:00 PM', trip2: '11:00PM', fare: 'P60', terminal_id: 10)
 DropoffLocation.create(location: 'Sucat road: access to Ireneville, Fourth Estate, Fortunata, Valley 2, Vitalez, Barangay Village, Santana Grove, Shopwise, Loyola Memorial Park, Medical Center Paranaque, SM BF Paranaque, Jaka Plaza, UPS 5, Greenheights, SM Hypermarket Sucat, Walter Mart Sucat, Evacom, SM City Sucat', route_id: 24)
