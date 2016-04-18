@@ -4,6 +4,7 @@ class TerminalsController < ApplicationController
   # GET /terminals
   # GET /terminals.json
   def index
+    @destination = Destination.find(params[:destination_id])
     @terminals = Terminal.all
   end
 
