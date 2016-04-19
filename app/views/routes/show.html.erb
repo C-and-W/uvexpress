@@ -10,7 +10,7 @@
                 <div class="">
                     <div class="row" style="margin-top:3vh;">
                         <div class="col-xs-2">
-                           <%= image_tag 'location to destination.png', :style => "height: 14vh; margin-left: 11.5px;margin-top: 1vh;"%>
+                           <%= image_tag 'location to destination.png', :style => "height: 14vh; margin-left: 11.5px;margin-top: 0.5vh;"%>
                     </div>
                     <div class="col-xs-8">
                       <%= form_for @destination, url: destination_path(params[:destination_id]), method: :patch, html: {id: "destination-form"} do |f| %>
@@ -91,11 +91,11 @@ onmouseout="this.src='/assets/reverse1.png'">
                   </div>
                   <% end %>
                   
-                   <div class="row td-divlink" style="height:12vh; background-color:white;">
-
-                     <center ><a href="/destinations/<%=@destination.id%>/terminals/<%=@terminal.id%>">
-                       <span class="sttitle1">LOCATE THE TERMINAL</span></a>
-                     </center>
+                   <div class="row td-divlink" style="height:8.2vh; background-color:white;">
+                   <div class="col-md-4"></div>
+                   <a href="/destinations/<%=@destination.id%>/terminals/<%=@terminal.id%>" style="">
+                    <div class="col-md-4 sttitle1"><center>LOCATE THE TERMINAL</center></div></a>
+                     
                    </div>
 
 
