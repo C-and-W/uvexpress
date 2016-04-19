@@ -6,7 +6,7 @@
                 <div class="">
                     <div class="row" style="margin-top:3vh;">
                         <div class="col-xs-2">
-                        <%= image_tag 'location to destination.png', :style => "height: 12vh; margin-left: 14px;margin-top: 1.4vh;"%>
+                        <%= image_tag 'location to destination.png', :style => "height: 14vh; margin-left: 11.5px;margin-top: 1vh;"%>
                     </div>
                     <div class="col-xs-8">
                       <%= form_for @destination, url: {action: "update"}, html: {id: "destination-form"} do |f| %>
@@ -16,7 +16,8 @@
                       <% end %>
                     </div>
                     <div class="col-xs-2" style="padding-top:10px;">
-                        <input type="image" src="/assets/reverse.png" alt="Reverse" id="i-reverse1" class="i-reverse">
+                        <input type="image" src="/assets/reverse1.png" alt="Reverse" id="i-reverse1" class="i-reverse"onmouseover="this.src='/assets/reverse.png'"
+onmouseout="this.src='/assets/reverse1.png'">
                     </div>
 
                     </div>

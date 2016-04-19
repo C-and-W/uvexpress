@@ -10,7 +10,7 @@
                 <div class="">
                     <div class="row" style="margin-top:3vh;">
                         <div class="col-xs-2">
-                        <%= image_tag 'location to destination.png', :style => "height: 12vh; margin-left: 14px;margin-top: 1.4vh;"%>
+                           <%= image_tag 'location to destination.png', :style => "height: 14vh; margin-left: 11.5px;margin-top: 1vh;"%>
                     </div>
                     <div class="col-xs-8">
                       <%= form_for @destination, url: destination_path(params[:destination_id]), method: :patch, html: {id: "destination-form"} do |f| %>
@@ -20,7 +20,8 @@
                       <% end %>
                     </div>
                     <div class="col-xs-2" style="padding-top:10px;">
-                        <input type="image" src="/assets/reverse.png" alt="Reverse" id="i-reverse1" class="i-reverse" onclick="for_reverse(event);">
+                        <input type="image" src="/assets/reverse1.png" alt="Reverse" id="i-reverse1" class="i-reverse" onclick="for_reverse(event);"onmouseover="this.src='/assets/reverse.png'"
+onmouseout="this.src='/assets/reverse1.png'">
                     </div>
 
                     </div>
@@ -36,7 +37,7 @@
                 <div style="overflow-y:auto;overflow-x:hidden; height:38vh;">
                    <div class="row td-divlink" style="height:12vh; background-color:white;">
                   <div class="col-xs-1"></div>
-                  <div style="width:12.5vh; height:100%;background-image:url(/assets/route.png);background-size:cover;background-position:cover; margin-left:20px;" class="col-xs-3">
+                  <div style="width:12.5vh; height:100%;background-image:url(/assets/route.png);background-size:cover;background-position:cover; margin-left:-22px;" class="col-xs-3">
                     
                   </div>
                   <div style="padding-top:1vh;" class="col-xs-8" >
@@ -48,7 +49,7 @@
                 </div>
                   <div class="row td-divlink" style="height:12vh; background-color:white;">
                   <div class="col-xs-1"></div>
-                  <div style="width:13vh; height:100%;background-image:url(/assets/schedule.png);background-size:cover;background-position:cover; margin-left:16px;" class="col-xs-3">
+                  <div style="width:13vh; height:100%;background-image:url(/assets/schedule.png);background-size:cover;background-position:cover; margin-left:-25.5px;" class="col-xs-3">
                     
                   </div>
                   <div style="padding-top:0.9vh;" class="col-xs-8" >
@@ -60,7 +61,7 @@
 
                   <div class="row td-divlink" style="height:12vh; background-color:white;">
                   <div class="col-xs-1"></div>
-                  <div style="width:13vh; height:100%;background-image:url(/assets/fare.png);background-size:cover;background-position:cover; margin-left:19px;" class="col-xs-3">
+                  <div style="width:13vh; height:100%;background-image:url(/assets/fare.png);background-size:cover;background-position:cover; margin-left:-23.5px;" class="col-xs-3">
                     
                   </div>
                   <div style="padding-top:0.9vh;" class="col-xs-8" >
@@ -72,12 +73,12 @@
                   <div class="row td-divlink" style="height:12vh; background-color:white;">
                   <div class="col-xs-1"></div>
 
-                  <div style="padding-top:0.9vh;" class="col-xs-10" >
-                    <span class="ttitle">DROP OFF POINTS</span><br>
-                    <span class="sttitle">
+                  <div style="" class="col-xs-10" >
+                    <span class="ttitle" style="margin-left:-16px;">DROP OFF POINTS</span><br>
+                    <span class="sttitle" style="">
                      
                     <p>
-                      <ul>
+                      <ul style="margin-left:-40px;">
                       <% @route.dropoff_locations.each do |d| %>
                         <li><%= d.location %></li>
                       <% end %>
@@ -89,8 +90,10 @@
                   </div>
                   </div>
                   <% end %>
+                  
                    <div class="row td-divlink" style="height:12vh; background-color:white;">
-                     <center><a href="/destinations/<%=@destination.id%>/terminals/<%=@terminal.id%>">
+
+                     <center ><a href="/destinations/<%=@destination.id%>/terminals/<%=@terminal.id%>">
                        <span class="sttitle1">LOCATE THE TERMINAL</span></a>
                      </center>
                    </div>

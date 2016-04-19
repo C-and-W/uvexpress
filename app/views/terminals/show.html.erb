@@ -10,7 +10,7 @@
                 <div class="">
                     <div class="row" style="margin-top:3vh;">
                         <div class="col-xs-2">
-                        <%= image_tag 'location to destination.png', :style => "height: 12vh; margin-left: 14px;margin-top: 1.4vh;"%>
+                        <%= image_tag 'location to destination.png', :style => "height: 14vh; margin-left: 11.5px;margin-top: 1vh;"%>
                     </div>
                     <div class="col-xs-8">
                       <%= form_for @destination, url: destination_path(params[:destination_id]), method: :patch, html: {id: "destination-form"} do |f| %>
@@ -20,7 +20,8 @@
                       <% end %>
                     </div>
                     <div class="col-xs-2" style="padding-top:10px;">
-                        <input type="image" src="/assets/reverse.png" alt="Reverse" id="i-reverse1" class="i-reverse" onclick="for_reverse(event);">
+                        <input type="image" src="/assets/reverse1.png" alt="Reverse" id="i-reverse1" class="i-reverse" onclick="for_reverse(event);"onclick="for_reverse(event);"onmouseover="this.src='/assets/reverse.png'"
+onmouseout="this.src='/assets/reverse1.png'">
                     </div>
 
                     </div>
@@ -39,7 +40,7 @@
                 <a href="<%=@terminal.id%>/routes/<%=t.id%>">
                 <div class="row td-divlink" style="height:12vh; background-color:white;">
                   <div class="col-xs-1"></div>
-                  <div style="width:12.5vh; height:100%;background-image:url(/assets/route.png);background-size:cover;background-position:cover; margin-left:20px;" class="col-xs-3">
+                  <div style="width:12.5vh; height:100%;background-image:url(/assets/route.png);background-size:cover;background-position:cover; margin-left:-22px;" class="col-xs-3">
                     
                   </div>
                   <div style="padding-top:1vh;" class="col-xs-8" >
@@ -53,7 +54,7 @@
                 <%if @terminal.count!=0%>
                 <div class="row" style="; background-color:white; margin-top:10px;">
                   <div class="col-xs-1"></div>
-                  <div style="height:36vh; margin-left:0px;" class="col-xs-10">
+                  <div style="height:36vh; margin-left:-17px;" class="col-xs-11">
                     <div class="galarie items-3">
                     <%ccount=@terminal.count%>
                     <% (1..ccount).each do |i| %>
@@ -67,9 +68,9 @@
                     </figure>
                     <% end %>
 
-                      <div class="controls" style="margin-left:-35%;">
+                      <div class="controls" style="margin-left:-40%;">
                       <% (1..ccount).each do |i| %>
-                        <a href="#item-<%=i%>" class="control-button">•</a>
+                        <a href="#item-<%=i%>" class="control-button" style="font-size:34px;">•</a>
                       <% end %>
                       </div>
                     </div>
