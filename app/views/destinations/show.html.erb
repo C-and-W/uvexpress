@@ -6,7 +6,7 @@
                 <div class="">
                     <div class="row" style="margin-top:3vh;">
                         <div class="col-xs-2">
-                        <%= image_tag 'location to destination.png', :style => "height: 14vh; margin-left: 1px;margin-top: -0.5vh;"%>
+                        <%= image_tag 'location to destination.png', :style => "height: 14vh; margin-left: 1px;margin-top: -0.3vh;"%>
                     </div>
                     <div class="col-xs-8">
                       <%= form_for @destination, url: {action: "update"}, html: {id: "destination-form"} do |f| %>
@@ -124,7 +124,7 @@ if (navigator.geolocation) { //Checks if browser supports geolocation
        }
      });
      var infowindow = new google.maps.InfoWindow();
-            var setdis=5000;
+            var setdis=3000;
             var counter = 0;
             var terms = [];
             var linkto=[];
