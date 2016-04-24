@@ -179,6 +179,11 @@ $(document).ready(function() {
   window.onload = calcRoute;
 
 });
+$(document).keypress(function(e) {
+    if(e.which == 13) {
+        document.getElementById("destination-form").submit();
+    }
+});
 
 </script>
 

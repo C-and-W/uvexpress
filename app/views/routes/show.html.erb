@@ -186,7 +186,7 @@ onmouseout="this.src='/assets/reverse1.png'">
             <% elsif @route.id == 34 %> <!-- savemoremarikina r3 -->
               <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d30886.941178987465!2d121.05074102272901!3d14.6066144971018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x3397b82978054a61%3A0x5e97f652ea90e816!2sSavemore+Marikina+Riverbanks%2C+Riverbanks+Ave%2C+Marikina%2C+Metro+Manila!3m2!1d14.6314031!2d121.0822803!4m5!1s0x3397c8160219044b%3A0xcf11748d28af430d!2sSM+Megamall%2C+Mandaluyong!3m2!1d14.583879!2d121.056928!5e0!3m2!1sen!2sph!4v1461494455422" frameborder="0" style="border:0;width:100%;height:99.2vh;" allowfullscreen></iframe>
 
-            <% elsif @route.id == 49 %>
+            <% elsif @route.id == 49 %> <!-- alabangtc route1 -->
               <iframe src="https://www.google.com/maps/embed?pb=!1m67!1m12!1m3!1d123611.92711207287!2d120.95817337687943!3d14.491995127854008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m52!3e0!4m4!2s14.42381%2C+121.0315!3m2!1d14.42381!2d121.0315!4m5!1s0x3397c916938f6f8f%3A0xd7eb3938786d5267!2sAmorsolo+Street%2C+Makati%2C+Metro+Manila!3m2!1d14.5513487!2d121.01558849999999!4m5!1s0x3397c90dd3fac9fb%3A0xa3ac5c99530102dc!2sDela+Rosa+Street%2C+Makati%2C+Kalakhang+Maynila!3m2!1d14.557862799999999!2d121.01714439999999!4m5!1s0x3397c90dc211f5b9%3A0xc395c0d26de79c79!2sAdelantado%2C+Makati%2C+Kalakhang+Maynila!3m2!1d14.5553519!2d121.0152603!4m3!3m2!1d14.5284708!2d121.0375497!4m5!1s0x3397c90691bfada3%3A0x72ba69fd6ec9320a!2s8737+Paseo+de+Roxas%2C+Makati%2C+Metro+Manila!3m2!1d14.55844!2d121.02572599999999!4m5!1s0x3397c9088754c5d7%3A0xf2c3ce971f7ef065!2sH.V.+Dela+Costa%2C+Makati%2C+Metro+Manila!3m2!1d14.5613546!2d121.02123279999999!4m5!1s0x3397c9abb4e21dfd%3A0x3147a540040dc46d!2sMakati+Ave%2C+Makati%2C+Metro+Manila!3m2!1d14.55973!2d121.0270887!4m5!1s0x3397c91b9d9da6fb%3A0xd67ff631897d8d5d!2sSM+Makati%2C+Makati%2C+Metro+Manila!3m2!1d14.5494706!2d121.02688029999999!5e0!3m2!1sen!2sph!4v1461494521962" frameborder="0" style="border:0;width:100%;height:99.2vh;" allowfullscreen></iframe>
 
             <% else %>
@@ -215,4 +215,10 @@ $(document).ready(function() {
   });
   
 });
+$(document).keypress(function(e) {
+    if(e.which == 13) {
+        document.getElementById("destination-form").submit();
+    }
+});
+
 </script>
