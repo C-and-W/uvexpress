@@ -188,13 +188,11 @@ smaura_r14 = Route.create(name: 'Guadalupe', schedule: 'Not Available', trip1: '
 alabangtc = Terminal.create(name: 'Alabang Town Center Terminal', latitude:14.42381, longitude: 121.0315, runtime: '6:00PM to 11:00PM',count:1)
 alabangtc_r1 = Route.create(name: 'Ayala via Skyway', schedule: '', trip1: '6:00 AM', trip2:'8:00 AM', fare: 'P70', terminal_id: alabangtc.id)
 
-
-# Terminal.create(name: 'SM Southmall', route: 'Ayala Makati via Skyway', latitude:14.433158, longitude: 121.01259124,runtime:"6:00PM to 11:00PM")
-# Terminal.create(name: 'Times st. (in front of Perpetual Help)', route: 'Lawton via Coastal', latitude:14.44807318, longitude: 120.9852165,runtime:"6:00PM to 11:00PM")
-# Terminal.create(name: 'Jollibee Casimiro', route: 'Ayala Makati via Skyway', latitude:14.44478504, longitude: 120.99401127,runtime:"6:00PM to 11:00PM")
-# Terminal.create(name: 'BF Resort Village, Las Pinas', route: 'Ayala Makati via Skyway', latitude:14.44238698, longitude: 120.99198103,runtime:"6:00PM to 11:00PM")
-# Terminal.create(name: 'Pilar Village, Las Pinas', route: 'Lawton via Coastal rd.', latitude:14.43201772, longitude: 121.01422727,runtime:"6:00PM to 11:00PM")
-# Terminal.create(name: 'Marcos Alvarez', route: 'Lawton via Coastal rd.', latitude:14.43597379, longitude: 121.00892186,runtime:"6:00PM to 11:00PM")
-# Terminal.create(name: 'Park Square Terminal 1st Floor', route: 'BF Homes Paranaque via Skyway', latitude:14.54911384, longitude: 121.02564812,runtime:"6:00PM to 11:00PM")
-# Terminal.create(name: 'Park Square Terminal 2nd Floor', route: 'Market Market', latitude:14.54911384, longitude: 121.02564812,runtime:"6:00PM to 11:00PM")
-# Terminal.create(name: 'Makati Cinema Square Terminal', route: 'Las Pinas via Skyway', latitude:14.55246158, longitude: 121.01392831,runtime:"6:00PM to 11:00PM")
+#18 = moa
+moa = Terminal.create(name: 'SM Mall of Asia', latitude:14.5351, longitude: 120.9821, runtime: '24 hours',count:8)
+moa_r1 = Route.create(name: 'Sucat', schedule: 'Daily', trip1: '1:00 PM', trip2:'12:00 PM', fare: 'P40', terminal_id: moa.id)
+DropoffLocation.create(location: 'Sucat road -> access to Ireneville, Fourth Estate, Fortunata, Valley 2, Vitalez, Barangay Village, Santana Grove, Shopwise, Loyola Memorial Park, Medical Center Paranaque, SM BF Paranaque, Jaka Plaza, UPS 5, Greenheights, SM Hypermarket Sucat, Walter Mart Sucat, Evacom, SM City Sucat.', route_id: moa_r1.id)
+moa_r2 = Route.create(name: 'Las Pinas', schedule: 'Daily', trip1: '12:00 PM', trip2:'12:00 PM', fare: 'P50', terminal_id: moa.id)
+DropoffLocation.create(location: 'Alabang - Zapote road -> RFC, SM Las Pinas, Sm Hypermarket, Robinsons Las Pinas, BF Resort Village, Southland, Marcos Alvarez, Moonwalk, SM Southmall.', route_id: moa_r2.id)
+moa_r3 = Route.create(name: 'Fairview', schedule: '24 hours', trip1: '', trip2:'', fare: 'P80', terminal_id: moa.id)
+moa_r4 = Route.create(name: 'SM North EDSA', schedule: '24 hours', trip1: '', trip2:'', fare: 'P60', terminal_id: moa.id)
